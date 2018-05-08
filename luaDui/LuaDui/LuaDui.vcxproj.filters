@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="duilib">
+      <UniqueIdentifier>{e5dbdf96-e332-4f1a-9835-419acc903e9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="luaobj">
+      <UniqueIdentifier>{e0488e06-eaf8-4e90-bce1-37e9d1fac3f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="luaobj\malloc">
+      <UniqueIdentifier>{bb807865-521d-4181-a395-d2ec055c00cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="luabind">
+      <UniqueIdentifier>{8ce64895-e85f-480c-ba0b-d139ac2d808d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="log">
+      <UniqueIdentifier>{938af4a4-2be8-4544-9256-a058ef00b480}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xml">
+      <UniqueIdentifier>{c8f1a765-595e-4136-8ea9-5b697e57d54a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base">
+      <UniqueIdentifier>{1c9af272-1a15-4eef-8b6d-f9dab44ee1f9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIActiveX.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIBase.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UICombo.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UICommonControls.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIContainer.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIControl.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIDelegate.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIDlgBuilder.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIlib.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIList.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIRender.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIRichEdit.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\LuaBind.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\LuaCommon.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\LuaEngine.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\LuaException.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\LuaFunction.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\Luaobj.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\LuaObject.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\LuaObjectImpl.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\LuaStack.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\LuaState.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\LuaStateOwner.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\LuaTable.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\MemPool.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\malloc\dlmalloc.h">
+      <Filter>luaobj\malloc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIWindow.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIApplication.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIString.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LuaObj\Utf.h">
+      <Filter>luaobj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\Markup.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\log\log4z.h">
+      <Filter>log</Filter>
+    </ClInclude>
+    <ClInclude Include="lutil.h">
+      <Filter>luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DuiLib\UIManager.h">
+      <Filter>duilib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\xml\pugiconfig.hpp">
+      <Filter>xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\xml\pugixml.hpp">
+      <Filter>xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\RefBase.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\base\Criticalsection.h">
+      <Filter>base</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\stb_image.c">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UIActiveX.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UIBase.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UICombo.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UICommonControls.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UIContainer.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UIControl.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UIDelegate.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UIDlgBuilder.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UIlib.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UIList.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UIManager.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UIRender.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UIRichEdit.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\XUnzip.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LuaObj\LuaBind.cpp">
+      <Filter>luaobj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LuaObj\LuaEngine.cpp">
+      <Filter>luaobj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LuaObj\LuaFunction.cpp">
+      <Filter>luaobj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LuaObj\LuaObject.cpp">
+      <Filter>luaobj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LuaObj\LuaObjectImpl.cpp">
+      <Filter>luaobj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LuaObj\LuaState.cpp">
+      <Filter>luaobj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LuaObj\LuaStateOwner.cpp">
+      <Filter>luaobj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LuaObj\LuaTable.cpp">
+      <Filter>luaobj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LuaObj\malloc\dlmalloc.c">
+      <Filter>luaobj\malloc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UIWindow.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\UIApplication.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lcontrol.cpp">
+      <Filter>luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="lapplication.cpp">
+      <Filter>luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LuaObj\Utf.cpp">
+      <Filter>luaobj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DuiLib\Markup.cpp">
+      <Filter>duilib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\log\log4z.cpp">
+      <Filter>log</Filter>
+    </ClCompile>
+    <ClCompile Include="lutil.cpp">
+      <Filter>luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="lcommoncontrols.cpp">
+      <Filter>luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="lcontainer.cpp">
+      <Filter>luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="lcombo.cpp">
+      <Filter>luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="lbuilder.cpp">
+      <Filter>luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="lrichedit.cpp">
+      <Filter>luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="..\xml\pugixml.cpp">
+      <Filter>xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\base\RefBase.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="lwindow.cpp">
+      <Filter>luabind</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
