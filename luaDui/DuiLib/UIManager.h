@@ -315,6 +315,8 @@ public:
 
     static void MessageLoop();
     static bool TranslateMessage(const LPMSG pMsg);
+	static bool SendMsg(const LPMSG pMsg);
+
 	static void Term();
 
     bool MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT& lRes);
