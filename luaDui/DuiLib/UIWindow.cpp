@@ -8,7 +8,7 @@
 
 namespace DuiLib
 {
-
+	std::map<HWND, CWindowUI*> CWindowUI::m_windows;
 
 	CWindowUI::CWindowUI()
 	{
@@ -16,6 +16,7 @@ namespace DuiLib
 
 	CWindowUI::~CWindowUI()
 	{
+
 	}
 
 	UINT CWindowUI::GetClassStyle() const
@@ -243,7 +244,7 @@ namespace DuiLib
 
 	std::map<HWND, CWindowUI*> CWindowUI::GetWindows()
 	{
-		return m_windows;
+		return CWindowUI::m_windows;
 	}
 
 	LRESULT CWindowUI::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
