@@ -54,6 +54,8 @@ namespace DuiLib
 		static CApplicationUI* SharedInstance() { return s_application; }
 
 		void PostRunable(RefCountedPtr<IRunbaleUI>);
+
+		void ExitMessageLoop();
 	private:
 
 #ifdef LUV_SUPPORT
@@ -67,6 +69,8 @@ namespace DuiLib
 		base::CriticalSection m_queueLock;
 
 		static CApplicationUI* s_application;
+
+		bool m_LoopFlag =  true;
 	};
 
 	//如果其他线程需要调用界面线程的lua，则必须通过PostUIRunable调用，直接调用会导致崩溃

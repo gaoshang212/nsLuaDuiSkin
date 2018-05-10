@@ -69,8 +69,10 @@ namespace DuiLib
 #ifdef LUV_SUPPORT
 		SetTimer(NULL,0,10,LuvWorkTimerProc);
 #endif
+		m_LoopFlag = true;
+
 		MSG msg = { 0 };
-		while( ::GetMessage(&msg, NULL, 0, 0) ) 
+		while( ::GetMessage(&msg, NULL, 0, 0) && m_LoopFlag)
 		{
 			RefCountedPtr<IRunbaleUI> runable=GetRunable();
 			if (runable.get())
@@ -88,13 +90,16 @@ namespace DuiLib
 		return &m_lua;
 	}
 
-
-
 	void CApplicationUI::PostRunable(RefCountedPtr<IRunbaleUI> runable)
 	{
 		base::CritScope lock(&m_queueLock);
 		m_runableQueue.push(runable);
 		PostThreadMessage(m_threadId,WM_ACTIVATE_THREAD,0,0);
+	}
+
+	void CApplicationUI::ExitMessageLoop()
+	{
+		m_LoopFlag = false;
 	}
 
 	RefCountedPtr<IRunbaleUI> CApplicationUI::GetRunable()
