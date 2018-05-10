@@ -53,12 +53,6 @@ namespace DuiLib
 
 		static CApplicationUI* SharedInstance() { return s_application; }
 
-		static bool SendMsg(const LPMSG pMsg)
-		{
-			CPaintManagerUI::SendMsg(pMsg);
-			return false;
-		}
-
 		void PostRunable(RefCountedPtr<IRunbaleUI>);
 	private:
 

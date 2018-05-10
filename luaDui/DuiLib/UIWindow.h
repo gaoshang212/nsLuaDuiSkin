@@ -1,6 +1,6 @@
 #ifndef UIWINDOW_H
 #define UIWINDOW_H
-
+#include <map>
 
 
 namespace DuiLib
@@ -10,7 +10,7 @@ namespace DuiLib
 	{
 	public:
 		LBIND_BASE_CLASS_DEFINE(CWindowUI);
-		
+
 		CWindowUI();
 		virtual ~CWindowUI();
 
@@ -40,7 +40,7 @@ namespace DuiLib
 		virtual LRESULT OnMouseWheel(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 #endif
 
-		virtual LRESULT OnSize(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);	
+		virtual LRESULT OnSize(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 
 		virtual LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 
@@ -64,15 +64,18 @@ namespace DuiLib
 
 		virtual LPCTSTR GetWindowClassName() const;
 
+		static std::map<HWND, CWindowUI*> GetWindows();
 
-		void SetSkinXml(LPCTSTR xml){if(xml)skin_xml_=xml;}
+		void SetSkinXml(LPCTSTR xml) { if (xml)skin_xml_ = xml; }
 
-		CControlUI* FindControl(LPCTSTR name){return paint_manager_.FindControl(name);}
+		CControlUI* FindControl(LPCTSTR name) { return paint_manager_.FindControl(name); }
 		CPaintManagerUI* GetManager();
 
 	protected:
 		CPaintManagerUI paint_manager_;
 		CStdString skin_xml_;
+
+		static std::map<HWND, CWindowUI*> m_windows;
 	};
 
 
