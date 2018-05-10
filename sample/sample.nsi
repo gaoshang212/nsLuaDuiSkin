@@ -15,13 +15,14 @@ Unicode true
 RequestExecutionLevel user
 
 ; MUI 1.67 compatible ------
-!include "MUI.nsh"
+;!include "MUI.nsh"
 
 ; MUI Settings
 !define MUI_ABORTWARNING
 !define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
 
 Page custom customPage
+Page instfiles "" showInstall
 
 ; Welcome page
 ;!insertmacro MUI_PAGE_WELCOME
@@ -31,7 +32,7 @@ Page custom customPage
 ;!insertmacro MUI_PAGE_FINISH
 
 ; Language files
-!insertmacro MUI_LANGUAGE "English"
+;!insertmacro MUI_LANGUAGE "English"
 
 ; MUI end ------
 
@@ -47,6 +48,10 @@ FunctionEnd
 
 Function customPage
   nsLuaDuiSkin::Require "main"
+FunctionEnd
+
+Function showInstall
+
 FunctionEnd
 
 Section "MainSection" SEC01

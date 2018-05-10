@@ -149,6 +149,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="api.h" />
+    <ClInclude Include="MsgDef.h" />
+    <ClInclude Include="nsis.h" />
     <ClInclude Include="nsis_tchar.h" />
     <ClInclude Include="pluginapi.h" />
     <ClInclude Include="stdafx.h" />
@@ -157,6 +159,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="lnsis.cpp" />
+    <ClCompile Include="nsis.cpp" />
     <ClCompile Include="nsLuaDuiSkin.cpp" />
     <ClCompile Include="pluginapi.c" />
     <ClCompile Include="stdafx.cpp">

@@ -21,15 +21,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\nsLuaDuiSkin1\api.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\nsLuaDuiSkin1\nsis_tchar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\nsLuaDuiSkin1\pluginapi.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="api.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -40,6 +31,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nsis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,13 +50,16 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\nsLuaDuiSkin1\pluginapi.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="pluginapi.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lnsis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nsis.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

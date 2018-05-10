@@ -10,7 +10,15 @@
       </HorizontalLayout>
       <HorizontalLayout inset="20,4,20,0">
         <Text text="{p}{c #999999}360体检将对您的电脑系统进行快速一键扫描，对木马病毒、系统漏洞、恶意插件等问题进行修复，并全面解决潜在的安全风险，提高您的电脑运行速度。{/c}{/p}" showhtml="true"/>
-        <Button pos="200, 135, 340, 188" relativepos="50,50,0,0"  float="true" normalimage="file='scanbutton.png' source='0,0,140,53'" hotimage="file='scanbutton.png' source='140,0,280,53'" pushedimage="file='scanbutton.png' source='280,0,420,53'"/>
+        <Button pos="200, 135, 340, 188" relativepos="50,50,0,0"  float="true" normalimage="file='scanbutton.png' source='0,0,140,53'" hotimage="file='scanbutton.png' source='140,0,280,53'" pushedimage="file='scanbutton.png' source='280,0,420,53'">
+            <Event>
+              <click>
+                --UI.Nsis.install()
+					      --this:window():parent():findControl("switch"):selectItem(0)
+                UI.Nsis.install()
+              </click>
+            </Event>	
+        </Button>
       </HorizontalLayout>
     </VerticalLayout>
     <VerticalLayout width="1" inset="0,1,0,1">

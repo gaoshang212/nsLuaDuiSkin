@@ -5,8 +5,6 @@ local app=UI.CApplicationUI.sharedInstance()
 --app:setResourcePath(app:instancePath().."skin")
 
 --debug.showDebugUI()
-
-
 local Window=UI.CWindowUI
 
 --app:setResourceZip("360Demo.zip")
