@@ -303,3 +303,62 @@ void NSISCALL pushintptr(INT_PTR value)
   wsprintf(buffer, sizeof(void*) > 4 ? _T("%Id") : _T("%d"), value);
   pushstring(buffer);
 }
+
+int NSISCALL myatoi_or64(LPCTSTR s)
+{
+	UINT64 v = 0;
+	if (*s == _T('0') && (s[1] == _T('x') || s[1] == _T('X')))
+	{
+		s++;
+		for (;;)
+		{
+			int c = *(++s);
+			if (c >= _T('0') && c <= _T('9')) c -= _T('0');
+			else if (c >= _T('a') && c <= _T('f')) c -= _T('a') - 10;
+			else if (c >= _T('A') && c <= _T('F')) c -= _T('A') - 10;
+			else break;
+			v <<= 4;
+			v += c;
+		}
+	}
+	else if (*s == _T('0') && s[1] <= _T('7') && s[1] >= _T('0'))
+	{
+		for (;;)
+		{
+			int c = *(++s);
+			if (c >= _T('0') && c <= _T('7')) c -= _T('0');
+			else break;
+			v <<= 3;
+			v += c;
+		}
+	}
+	else
+	{
+		int sign = 0;
+		if (*s == _T('-')) sign++; else s--;
+		for (;;)
+		{
+			int c = *(++s) - _T('0');
+			if (c < 0 || c > 9) break;
+			v *= 10;
+			v += c;
+		}
+		if (sign) v = -v;
+	}
+
+	// Support for simple ORed expressions
+	if (*s == _T('|'))
+	{
+		v |= myatoi_or(s + 1);
+	}
+
+	return v;
+}
+
+UINT64 NSISCALL popuint64()
+{
+	TCHAR buf[128];
+	if (popstringn(buf, COUNTOF(buf)))
+		return 0;
+	return myatoi_or64(buf);
+}

@@ -6,11 +6,13 @@ Unicode true
 
 ; HM NIS Edit Wizard helper defines
 
-
 !define PRODUCT_NAME "My application"
 !define PRODUCT_VERSION "1.0"
 !define PRODUCT_PUBLISHER "My company, Inc."
 !define PRODUCT_WEB_SITE "http://www.mycompany.com"
+
+!define APP_32 "app.7z"
+!define COMPRESSION_METHOD "7z"
 
 RequestExecutionLevel user
 
@@ -22,7 +24,7 @@ RequestExecutionLevel user
 !define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
 
 Page custom customPage
-Page instfiles "" showInstall
+;Page instfiles preShowInstall showInstall
 
 ; Welcome page
 ;!insertmacro MUI_PAGE_WELCOME
@@ -38,24 +40,55 @@ Page instfiles "" showInstall
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "Setup.exe"
-InstallDir "$PROGRAMFILES\My application"
+InstallDir "$AppData\nsLuaDuiSkinTest"
+
+Function .onGUIInit
+    ; move window off screen
+FunctionEnd
 
 Function .onInit
     nsLuaDuiSkin::myFunction
     nsLuaDuiSkin::Initialize "F:\Source\nsLuaDuiSkin\sample\skin\360Demo"
     nsLuaDuiSkin::AddSearchPath "F:\Source\nsLuaDuiSkin\sample\"
+
 FunctionEnd
 
 Function customPage
-  nsLuaDuiSkin::Require "main"
+    GetFunctionAddress $0 extractUsing7za
+    nsLuaDuiSkin::InstallFunction $0
+
+    nsLuaDuiSkin::Require "main"
+FunctionEnd
+
+Function preShowInstall
+  
 FunctionEnd
 
 Function showInstall
+    
+FunctionEnd
+
+Function extractUsing7za
+    MessageBox MB_OK "extractUsing7za"
+    ;nsLuaDuiSkin::myFunction
+    File /oname=$PLUGINSDIR\app-32.${COMPRESSION_METHOD} "${APP_32}"
+
+    SetOutPath "$INSTDIR"
+    ;File "/oname=${UNINSTALL_FILENAME}" "${UNINSTALLER_OUT_FILE}"
+    GetFunctionAddress $0 ExtractCallback
+    Nsis7z::ExtractWithCallback "$PLUGINSDIR\app-32.${COMPRESSION_METHOD}" $0
+    Delete "$PLUGINSDIR\app-32.${COMPRESSION_METHOD}"
+
+FunctionEnd
+
+Function ExtractCallback
+    ;MessageBox MB_OK "ExtractCallback"
+    Pop $1
+    Pop $2
+    nsLuaDuiSkin::ProgressCallBack $1 $2
 
 FunctionEnd
 
 Section "MainSection" SEC01
-SectionEnd
-
-Section -Post
+    ;File "main.lua"
 SectionEnd

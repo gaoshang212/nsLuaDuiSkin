@@ -68,6 +68,7 @@ int NSISCALL popstringn(LPTSTR str, int maxlen); // with length limit, pass 0 fo
 INT_PTR NSISCALL popintptr();
 #define popint() ( (int) popintptr() )
 int NSISCALL popint_or(); // with support for or'ing (2|4|8)
+UINT64 NSISCALL popuint64(); 
 INT_PTR NSISCALL nsishelper_str_to_ptr(LPCTSTR s);
 #define myatoi(s) ( (int) nsishelper_str_to_ptr(s) ) // converts a string to an integer
 unsigned int NSISCALL myatou(LPCTSTR s); // converts a string to an unsigned integer, decimal only

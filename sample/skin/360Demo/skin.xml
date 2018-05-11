@@ -82,6 +82,7 @@
           </HorizontalLayout>
           <HorizontalLayout>
             <Text text="查杀木马" pos="335, 180, 600, 300" relativepos="50,50,0,0"  float="true" font="4" />
+    	      <Slider name="install_progress" float="true"  pos="335, 180, 600, 300" height="3" width="520" mouse="false" foreimage="process_top.png" bkimage="process_bottom.png" thumbsize="0,0" bkcolor="#FFD8D8D8"  />
           </HorizontalLayout>
           <HorizontalLayout>
             <Text text="清理插件" pos="335, 180, 600, 300" relativepos="50,50,0,0"  float="true" font="4" />
