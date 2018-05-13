@@ -38,6 +38,13 @@ public:
 
 	void Run(LuaState* L) override
 	{
+		LuaObject func = L->getGlobal("onProgress");
+		if (func.isFunction()) 
+		{
+			LuaFunction fun = func;
+			fun(m_value);
+		}
+
 		LuaTable nsis = L->getGlobal("nsis");
 
 		if (nsis.isTable())
