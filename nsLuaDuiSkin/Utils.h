@@ -75,6 +75,18 @@ public:
 		return *this;
 	}
 
+	void CopyTo(char* buffer)
+	{
+		memcpy(buffer, c_buffer, _size);
+	}
+
+	char* CloneTo() 
+	{
+		char* fn = new char[size() + 1];
+		memcpy(fn, c_buffer, size());
+		return fn;
+	}
+
 	//nstring& operator =(const unsigned char* lpsz)
 	//{
 	//	*this = (LPCSTR)lpsz;
@@ -97,10 +109,12 @@ private:
 		lstrcpy(t_buffer, lpsz);
 	}
 
+	
+
 	void alloc(size_t size)
 	{
 		t_buffer = new TCHAR[size];
 		_size = size;
 	}
-	
+
 };

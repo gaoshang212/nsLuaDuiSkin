@@ -134,6 +134,20 @@ public:
 		LOGE("the progress is %f", progress);
 	}
 
+	static void CallFunction(const char* fn)
+	{
+		auto item = m_functions[fn];
+		if (item > 0)
+		{
+			m_extra->ExecuteCodeSegment(item, nullptr);
+		}
+	}
+
+	static void RegisterFunction(const char* fn, int function)
+	{
+		m_functions[fn] = function - 1;
+	}
+
 	static NsisMessageFilter n_filter;
 
 private:
@@ -163,6 +177,8 @@ private:
 	static extra_parameters* m_extra;
 	static INT_PTR m_installfucntion;
 	static int m_progressfunction;
+
+	static std::map<const char*, int> m_functions;
 };
 
 
