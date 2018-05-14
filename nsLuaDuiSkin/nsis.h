@@ -143,7 +143,7 @@ public:
 
 	static void CallFunction(const char* fn)
 	{
-		auto item = m_functions[fn];
+		auto item = m_functions[std::string(fn)];
 		if (item > 0)
 		{
 			m_extra->ExecuteCodeSegment(item, nullptr);
@@ -152,7 +152,7 @@ public:
 
 	static void RegisterFunction(const char* fn, int function)
 	{
-		m_functions[fn] = function - 1;
+		m_functions[std::string(fn)] = function - 1;
 	}
 
 	static NsisMessageFilter n_filter;
@@ -185,7 +185,7 @@ private:
 	static INT_PTR m_installfucntion;
 	static int m_progressfunction;
 
-	static std::map<const char*, int> m_functions;
+	static std::map<std::string, int> m_functions;
 };
 
 
