@@ -83,7 +83,8 @@ public:
 	char* CloneTo() 
 	{
 		char* fn = new char[size() + 1];
-		memcpy(fn, c_buffer, size());
+		auto buffer = this->getdata();
+		memcpy(fn, buffer, size());
 		return fn;
 	}
 
