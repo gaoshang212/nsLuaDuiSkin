@@ -15,6 +15,8 @@ local Window=UI.CWindowUI
 local wnd=Window.create({res="install.xml",name="songliwu",x=0,y=0,w=508,h=418, type="popup"})
 wnd:centerWindow()
 
+wnd:findControl("editDir"):setText(UI.Nsis.installDir())
+
 nsis = {
     onProgress = function(progress)
         local control = wnd:findControl("slrProgress")

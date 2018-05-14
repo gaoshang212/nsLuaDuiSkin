@@ -4,6 +4,8 @@
 #include "MsgDef.h"
 #include "api.h"
 #include <thread>
+#include "pluginapi.h"
+#include <Shlobj.h>
 
 class NsisMessageFilter :public DuiLib::IMessageFilterUI
 {
@@ -39,7 +41,7 @@ public:
 	void Run(LuaState* L) override
 	{
 		LuaObject func = L->getGlobal("onProgress");
-		if (func.isFunction()) 
+		if (func.isFunction())
 		{
 			LuaFunction fun = func;
 			fun(m_value);
@@ -56,14 +58,6 @@ public:
 				onProgress(m_value);
 			}
 		}
-
-		//func(m_value);
-
-		/*if (m_progressfunction)
-		{
-			 auto function = static_cast<LuaFunction>(LuaFunction::objFromIndex(L, m_progressfunction));
-			 function(m_value);
-		}*/
 	}
 
 	int AddRef() override
@@ -153,6 +147,60 @@ public:
 	static void RegisterFunction(const char* fn, int function)
 	{
 		m_functions[std::string(fn)] = function - 1;
+	}
+
+	static DuiLib::CStdString InstallDir()
+	{
+		return getuservariable(INST_INSTDIR);
+	}
+
+	static int CALLBACK BrowseCallbackProc(HWND hwnd, UINT uMsg, LPARAM lp, LPARAM pData)
+	{
+		if (uMsg == BFFM_INITIALIZED)
+			SendMessage(hwnd, BFFM_SETSELECTION, TRUE, pData);
+
+		return 0;
+	}
+
+	static DuiLib::CStdString ShowFolderDialog()
+	{
+		BROWSEINFO bi;
+		LPITEMIDLIST resultPIDL;
+
+		auto map = DuiLib::CWindowUI::GetWindows();
+
+		bi.hwndOwner = map.begin()->second->GetHWND();
+		bi.pidlRoot = NULL;
+		bi.pszDisplayName = NULL;
+		bi.lpszTitle = _T("选择安装文件夹");
+#ifndef BIF_NEWDIALOGSTYLE
+#define BIF_NEWDIALOGSTYLE 0x0040
+#endif
+		//bi.ulFlags = BIF_STATUSTEXT | BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE | BIF_NONEWFOLDERBUTTON;
+		bi.ulFlags = BIF_STATUSTEXT | BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE;
+		bi.lpfn = Nsis::BrowseCallbackProc;
+		bi.lParam = NULL;
+		bi.iImage = 0;
+
+		resultPIDL = SHBrowseForFolder(&bi);
+		if (!resultPIDL) {
+			return "";
+		}
+
+		TCHAR result[MAX_PATH];
+
+		SHGetPathFromIDList(resultPIDL, result);
+		CoTaskMemFree(resultPIDL);
+
+		if (result[_tcslen(result) - 1] == _T('\\'))
+			result[_tcslen(result) - 1] = _T('\0');
+
+		return result;
+	}
+
+	static void SetInstallDir(DuiLib::CStdString dir)
+	{
+		return setuservariable(INST_INSTDIR, dir);
 	}
 
 	static NsisMessageFilter n_filter;

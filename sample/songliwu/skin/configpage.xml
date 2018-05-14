@@ -6,10 +6,10 @@
 			<VerticalLayout bkimage="file='bgtop.png'"></VerticalLayout>
 		</VerticalLayout>
 		<VerticalLayout bkimage="file='bgbottom.png' corner='10,0,10,10'">
-			<Button name="btnInstall" padding="165,35,0,0" font="2" normalimage="file='install.png' source='0,0,240,38'" hotimage="file='install.png' source='0,38,240,76'" pushedimage="file='install.png' source='0,76,240,114'" height="38" width="240" >
+			<Button name="btnInstall" padding="165,35,0,0" font="2" normalimage="file='install.png' source='0,0,240,38'" hotimage="file='install.png' source='0,38,240,76'" pushedimage="file='install.png' source='0,76,240,114'" height="38" width="240">
 				<Event>
 					<click>
-							<![CDATA[										
+						<![CDATA[										
 								local tab = this:window():findControl("wizardTab")
 								tab:selectItem(1)
 
@@ -22,7 +22,20 @@
 				<HorizontalLayout height="26">
 					<RichEdit name="editDir" text="" textcolor="0xFF000000" inset="5,7,2,2" bkcolor="#ffffffff" autohscroll="false" bordervisible="true" bordersize="1" bordercolor="0xFFD1D1D1" focusbordercolor="0xFFD1D1D1" wantreturn="false" wantctrlreturn="false" multiline="false" width="300" />
 					<Control width="6" />
-					<Button name="btnSelectDir" normalimage="file='modify.png' source='0,0,68,26'" pushedimage="file='modify.png' source='0,26,68,52'" hotimage="file='modify.png' source='0,52,68,78'" width="68" height="26" />
+					<Button name="btnSelectDir" normalimage="file='modify.png' source='0,0,68,26'" pushedimage="file='modify.png' source='0,26,68,52'" hotimage="file='modify.png' source='0,52,68,78'" width="68" height="26">
+						<Event>
+							<click>
+								<![CDATA[										
+									local dir = UI.Nsis.showFolderDialog()
+									if(dir ~= nil and dir ~= "")
+									then
+										UI.Nsis.setInstallDir(dir)
+										this:window():findControl("editDir"):setText(dir)	
+									end
+								]]>
+							</click>
+						</Event>
+					</Button>
 				</HorizontalLayout>
 				<Control height="10"/>
 				<HorizontalLayout height="23">
@@ -50,9 +63,7 @@
 				</Option>
 				<Button name="btnAgreement" width="140" text="《牛牛截图示例协议》" textpadding="0,3,0,0" textcolor="0xFF2786e4" align="left">
 					<Event>
-						<click>
-							this:window():findControl("licenseshow"):setVisible(true)
-						</click>
+						<click>							this:window():findControl("licenseshow"):setVisible(true)						</click>
 					</Event>
 				</Button>
 				<Control />
