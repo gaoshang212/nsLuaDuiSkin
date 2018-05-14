@@ -29,7 +29,7 @@ public:
 
 	char* getdata()
 	{
-		char* result = nullptr;
+		char* result = c_buffer;
 #ifdef UNICODE
 		if (c_buffer == nullptr)
 		{

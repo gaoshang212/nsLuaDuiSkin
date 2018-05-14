@@ -27,6 +27,11 @@ nsis = {
             local tab = wnd:findControl("wizardTab")
             tab:selectItem(2)
         end
+    end,
+
+    test = function()
+        local tab = wnd:findControl("wizardTab")
+        tab:selectItem(2)
     end
 }
 
