@@ -29,7 +29,7 @@
 					<VBox name="fast_setup" minheight="120" padding="95,0,0,30">
 						<Control />
 						<HBox width="290" height="18" >
-							<CheckBox class="checkbox_font14" name="chkbox_read" align="vcenter" text="我已经阅读并认可" normaltextcolor="darkcolor" selected="true"/>
+							<Option class="checkbox_font14" name="chkbox_read" align="vcenter" text="我已经阅读并认可" normaltextcolor="darkcolor" selected="true"/>
 							<Button name="btn_readme" cursortype="hand" font="2" align="vcenter" normaltextcolor="green" text="《软件许可及服务协议》"/>
 						</HBox>
 						<Button name="setup" width="290" height="40" normalimage="btn_installation_normal.png" hotimage="btn_installation_hovered.png" pushedimage="btn_installation_pressed.png" disabledimage="btn_installation_disable.png" font="7" normaltextcolor="white" disabledtextcolor="white" margin="0,10,0,0" text="一键安装"/>
@@ -45,6 +45,6 @@
 				</VBox>
 			</Box>
 		</VBox>
-		<CheckBox name="btn_path" width="40" height="40" normalimage="btn_down_normal.png" hotimage="btn_down_hovered.png" pushedimage="btn_down_pressed.png" selectednormalimage="btn_up_normal.png" selectedhotimage="btn_up_hovered.png" selectedpushedimage="btn_up_pressed.png" halign="center" margin="0,229,0,0" />
+		<Option name="btn_path" width="40" height="40" normalimage="btn_down_normal.png" hotimage="btn_down_hovered.png" pushedimage="btn_down_pressed.png" selectednormalimage="btn_up_normal.png" selectedhotimage="btn_up_hovered.png" selectedpushedimage="btn_up_pressed.png" halign="center" margin="0,229,0,0" />
 	</Box>
 </Window>

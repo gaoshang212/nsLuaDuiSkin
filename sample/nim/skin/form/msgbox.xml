@@ -15,7 +15,7 @@
 					<RichEdit name="information2" width="305" font="20" multiline="true" vscrollbar="false" autovscroll="false" enabled="false" rich="true" visible="false" margin="0,10,0,0" />
 				</VBox>
             </HBox>
-            <CheckBox class="checkbox_font12" name="checkbox" margin="35,5,0,0" visible="false"/>
+            <Option class="checkbox_font12" name="checkbox" margin="35,5,0,0" visible="false"/>
         </VBox>
 
 

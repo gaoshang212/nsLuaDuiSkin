@@ -21,9 +21,20 @@
     </TabLayout>
     <HorizontalLayout float="true" inset="0,5,5,0" pos="0,14,494,40">
       <Container />
-      <Button name="btnFinishedMin" width="20" height="20" normalimage="file='public\button\btn_wnd_white_min.png' dest='4,4,16,16'" hotimage="file='public\button\btn_wnd_white_min_hovered.png'" pushedimage="file='public\button\btn_wnd_white_min_pushed.png'" />
+      <Button name="btnFinishedMin" width="20" height="20" normalimage="file='public\button\btn_wnd_white_min.png' dest='4,4,16,16'" hotimage="file='public\button\btn_wnd_white_min_hovered.png'" pushedimage="file='public\button\btn_wnd_white_min_pushed.png'">
+        <Event>
+          <click>this:window():showMin()</click>
+        </Event>
+      </Button>
       <Control width="5" />
-      <Button name="btnClose" width="20" height="20" normalimage="file='public\button\btn_wnd_white_close.png' dest='4,4,16,16'" hotimage="file='public\button\btn_wnd_close_hovered.png'" pushedimage="file='public\button\btn_wnd_close_pushed.png'" />
+      <Button name="btnClose" width="20" height="20" normalimage="file='public\button\btn_wnd_white_close.png' dest='4,4,16,16'" hotimage="file='public\button\btn_wnd_close_hovered.png'" pushedimage="file='public\button\btn_wnd_close_pushed.png'">
+        <Event>
+          <click>
+            local app=UI.CApplicationUI.sharedInstance()
+            app:quit()
+          </click>
+        </Event>
+      </Button>
     </HorizontalLayout>
   </VerticalLayout>
 </Window>
