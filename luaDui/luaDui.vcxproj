@@ -90,6 +90,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;UILIB_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>../lua51;../luaObj;.;./duilib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -111,14 +112,15 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;UILIB_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../lua51;../luaObj;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lua51;../luaObj;./duilib;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -147,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="base\Criticalsection.h" />
     <ClInclude Include="base\RefBase.h" />
+    <ClInclude Include="bind\lutil.h" />
     <ClInclude Include="duilib\Control\UIActiveX.h" />
     <ClInclude Include="duilib\Control\UIButton.h" />
     <ClInclude Include="duilib\Control\UICheckBox.h" />
@@ -195,6 +198,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\RefBase.cpp" />
+    <ClCompile Include="bind\lapplication.cpp" />
+    <ClCompile Include="bind\lbuilder.cpp" />
+    <ClCompile Include="bind\lcombo.cpp" />
+    <ClCompile Include="bind\lcommoncontrols.cpp" />
+    <ClCompile Include="bind\lcontainer.cpp" />
+    <ClCompile Include="bind\lcontrol.cpp" />
+    <ClCompile Include="bind\lrichedit.cpp" />
+    <ClCompile Include="bind\lutil.cpp" />
+    <ClCompile Include="bind\lwindow.cpp" />
     <ClCompile Include="duilib\Control\UIActiveX.cpp" />
     <ClCompile Include="duilib\Control\UIButton.cpp" />
     <ClCompile Include="duilib\Control\UICheckBox.cpp" />
