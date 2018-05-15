@@ -54,7 +54,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../;$(SolutionDir)luaObj;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -71,7 +71,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../;$(SolutionDir)luaObj</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -102,21 +102,6 @@
     <ClInclude Include="..\DuiLib\UIRender.h" />
     <ClInclude Include="..\DuiLib\UIRichEdit.h" />
     <ClInclude Include="..\log\log4z.h" />
-    <ClInclude Include="..\LuaObj\LuaBind.h" />
-    <ClInclude Include="..\LuaObj\LuaCommon.h" />
-    <ClInclude Include="..\LuaObj\LuaEngine.h" />
-    <ClInclude Include="..\LuaObj\LuaException.h" />
-    <ClInclude Include="..\LuaObj\LuaFunction.h" />
-    <ClInclude Include="..\LuaObj\Luaobj.h" />
-    <ClInclude Include="..\LuaObj\LuaObject.h" />
-    <ClInclude Include="..\LuaObj\LuaObjectImpl.h" />
-    <ClInclude Include="..\LuaObj\LuaStack.h" />
-    <ClInclude Include="..\LuaObj\LuaState.h" />
-    <ClInclude Include="..\LuaObj\LuaStateOwner.h" />
-    <ClInclude Include="..\LuaObj\LuaTable.h" />
-    <ClInclude Include="..\LuaObj\malloc\dlmalloc.h" />
-    <ClInclude Include="..\LuaObj\MemPool.h" />
-    <ClInclude Include="..\LuaObj\Utf.h" />
     <ClInclude Include="..\xml\pugiconfig.hpp" />
     <ClInclude Include="..\xml\pugixml.hpp" />
     <ClInclude Include="lutil.h" />
@@ -145,16 +130,6 @@
     <ClCompile Include="..\DuiLib\UIRichEdit.cpp" />
     <ClCompile Include="..\DuiLib\XUnzip.cpp" />
     <ClCompile Include="..\log\log4z.cpp" />
-    <ClCompile Include="..\LuaObj\LuaBind.cpp" />
-    <ClCompile Include="..\LuaObj\LuaEngine.cpp" />
-    <ClCompile Include="..\LuaObj\LuaFunction.cpp" />
-    <ClCompile Include="..\LuaObj\LuaObject.cpp" />
-    <ClCompile Include="..\LuaObj\LuaObjectImpl.cpp" />
-    <ClCompile Include="..\LuaObj\LuaState.cpp" />
-    <ClCompile Include="..\LuaObj\LuaStateOwner.cpp" />
-    <ClCompile Include="..\LuaObj\LuaTable.cpp" />
-    <ClCompile Include="..\LuaObj\malloc\dlmalloc.c" />
-    <ClCompile Include="..\LuaObj\Utf.cpp" />
     <ClCompile Include="..\xml\pugixml.cpp" />
     <ClCompile Include="lapplication.cpp" />
     <ClCompile Include="lbuilder.cpp" />
@@ -174,6 +149,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\lua51\lua51.vcxproj">
       <Project>{62a8505d-d9bd-47e8-bfba-8af2e48662b2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\luaObj\luaObj.vcxproj">
+      <Project>{8e449801-fb58-4a0f-a63e-04a695bfc26b}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

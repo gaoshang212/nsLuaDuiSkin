@@ -1,7 +1,6 @@
 ﻿#include "stdafx.h"
-#include "LuaObj/LuaBind.h"
+#include "LuaObj.h"
 #include "DuiLib/UIString.h"
-#include "MsgDef.h"
 #include "nsis.h"
 
 

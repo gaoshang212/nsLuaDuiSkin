@@ -1,4 +1,4 @@
-#include "LuaObj/Luaobj.h"
+#include "Luaobj.h"
 
 
 namespace lbind

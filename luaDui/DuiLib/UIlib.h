@@ -65,7 +65,7 @@
 #endif
 
 
-#include "LuaObj/luaobj.h"
+#include "luaobj.h"
 
 #include "UIString.h"
 

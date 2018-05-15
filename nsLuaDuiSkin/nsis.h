@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "stdafx.h"
-#include "LuaObj/LuaBind.h"
+#include "Luaobj.h"
 #include "MsgDef.h"
 #include "api.h"
 #include <thread>
