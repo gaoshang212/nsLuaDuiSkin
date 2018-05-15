@@ -20,35 +20,35 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{05A82740-81AD-4A22-B111-A12F5B5EA330}</ProjectGuid>
+    <ProjectGuid>{50565855-8EC6-4DAE-8BF6-A7A50097DF54}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>nsLuaDuiSkin</RootNamespace>
+    <RootNamespace>luaDui</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120_xp</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120_xp</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120_xp</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -87,44 +87,38 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;NSLUADUISKIN_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;UILIB_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../luaDui;$(SolutionDir)luaObj;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>../lua51;../luaObj;.;./duilib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <BaseAddress>0x11000000</BaseAddress>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;NSLUADUISKIN_EXPORTS;_WINDOWS;_USRDLL;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../luaDui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;NSLUADUISKIN_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../luaDui;$(SolutionDir)luaObj;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>../lua51;../luaObj;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -140,7 +134,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;NSLUADUISKIN_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -151,28 +145,110 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="api.h" />
-    <ClInclude Include="MsgDef.h" />
-    <ClInclude Include="nsis.h" />
-    <ClInclude Include="nsis_tchar.h" />
-    <ClInclude Include="pluginapi.h" />
+    <ClInclude Include="base\Criticalsection.h" />
+    <ClInclude Include="base\RefBase.h" />
+    <ClInclude Include="duilib\Control\UIActiveX.h" />
+    <ClInclude Include="duilib\Control\UIButton.h" />
+    <ClInclude Include="duilib\Control\UICheckBox.h" />
+    <ClInclude Include="duilib\Control\UICombo.h" />
+    <ClInclude Include="duilib\Control\UIDateTime.h" />
+    <ClInclude Include="duilib\Control\UIEdit.h" />
+    <ClInclude Include="duilib\Control\UIFlash.h" />
+    <ClInclude Include="duilib\Control\UIGifAnim.h" />
+    <ClInclude Include="duilib\Control\UILabel.h" />
+    <ClInclude Include="duilib\Control\UIList.h" />
+    <ClInclude Include="duilib\Control\UIOption.h" />
+    <ClInclude Include="duilib\Control\UIProgress.h" />
+    <ClInclude Include="duilib\Control\UIRichEdit.h" />
+    <ClInclude Include="duilib\Control\UIScrollBar.h" />
+    <ClInclude Include="duilib\Control\UISlider.h" />
+    <ClInclude Include="duilib\Control\UIText.h" />
+    <ClInclude Include="duilib\Control\UITreeView.h" />
+    <ClInclude Include="duilib\Control\UIWebBrowser.h" />
+    <ClInclude Include="duilib\Core\UIBase.h" />
+    <ClInclude Include="duilib\Core\UIContainer.h" />
+    <ClInclude Include="duilib\Core\UIControl.h" />
+    <ClInclude Include="duilib\Core\UIDefine.h" />
+    <ClInclude Include="duilib\Core\UIDlgBuilder.h" />
+    <ClInclude Include="duilib\Core\UIManager.h" />
+    <ClInclude Include="duilib\Core\UIMarkup.h" />
+    <ClInclude Include="duilib\Core\UIRender.h" />
+    <ClInclude Include="duilib\Layout\UIChildLayout.h" />
+    <ClInclude Include="duilib\Layout\UIHorizontalLayout.h" />
+    <ClInclude Include="duilib\Layout\UITabLayout.h" />
+    <ClInclude Include="duilib\Layout\UITileLayout.h" />
+    <ClInclude Include="duilib\Layout\UIVerticalLayout.h" />
+    <ClInclude Include="duilib\UIlib.h" />
+    <ClInclude Include="duilib\Utils\downloadmgr.h" />
+    <ClInclude Include="duilib\Utils\FlashEventHandler.h" />
+    <ClInclude Include="duilib\Utils\stb_image.h" />
+    <ClInclude Include="duilib\Utils\UIDelegate.h" />
+    <ClInclude Include="duilib\Utils\Utils.h" />
+    <ClInclude Include="duilib\Utils\WebBrowserEventHandler.h" />
+    <ClInclude Include="duilib\Utils\WinImplBase.h" />
+    <ClInclude Include="duilib\Utils\WndShadow.h" />
+    <ClInclude Include="log\log4z.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Utils.h" />
+    <ClInclude Include="UIApplication.h" />
+    <ClInclude Include="UIWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="lnsis.cpp" />
-    <ClCompile Include="nsis.cpp" />
-    <ClCompile Include="nsLuaDuiSkin.cpp" />
-    <ClCompile Include="pluginapi.c" />
+    <ClCompile Include="base\RefBase.cpp" />
+    <ClCompile Include="duilib\Control\UIActiveX.cpp" />
+    <ClCompile Include="duilib\Control\UIButton.cpp" />
+    <ClCompile Include="duilib\Control\UICheckBox.cpp" />
+    <ClCompile Include="duilib\Control\UICombo.cpp" />
+    <ClCompile Include="duilib\Control\UIDateTime.cpp" />
+    <ClCompile Include="duilib\Control\UIEdit.cpp" />
+    <ClCompile Include="duilib\Control\UIFlash.cpp" />
+    <ClCompile Include="duilib\Control\UIGifAnim.cpp" />
+    <ClCompile Include="duilib\Control\UILabel.cpp" />
+    <ClCompile Include="duilib\Control\UIList.cpp" />
+    <ClCompile Include="duilib\Control\UIOption.cpp" />
+    <ClCompile Include="duilib\Control\UIProgress.cpp" />
+    <ClCompile Include="duilib\Control\UIRichEdit.cpp" />
+    <ClCompile Include="duilib\Control\UIScrollBar.cpp" />
+    <ClCompile Include="duilib\Control\UISlider.cpp" />
+    <ClCompile Include="duilib\Control\UIText.cpp" />
+    <ClCompile Include="duilib\Control\UITreeView.cpp" />
+    <ClCompile Include="duilib\Control\UIWebBrowser.cpp" />
+    <ClCompile Include="duilib\Core\UIBase.cpp" />
+    <ClCompile Include="duilib\Core\UIContainer.cpp" />
+    <ClCompile Include="duilib\Core\UIControl.cpp" />
+    <ClCompile Include="duilib\Core\UIDlgBuilder.cpp" />
+    <ClCompile Include="duilib\Core\UIManager.cpp" />
+    <ClCompile Include="duilib\Core\UIMarkup.cpp" />
+    <ClCompile Include="duilib\Core\UIRender.cpp" />
+    <ClCompile Include="duilib\Layout\UIChildLayout.cpp" />
+    <ClCompile Include="duilib\Layout\UIHorizontalLayout.cpp" />
+    <ClCompile Include="duilib\Layout\UITabLayout.cpp" />
+    <ClCompile Include="duilib\Layout\UITileLayout.cpp" />
+    <ClCompile Include="duilib\Layout\UIVerticalLayout.cpp" />
+    <ClCompile Include="duilib\UIlib.cpp" />
+    <ClCompile Include="duilib\Utils\stb_image.c" />
+    <ClCompile Include="duilib\Utils\UIDelegate.cpp" />
+    <ClCompile Include="duilib\Utils\Utils.cpp" />
+    <ClCompile Include="duilib\Utils\WinImplBase.cpp" />
+    <ClCompile Include="duilib\Utils\WndShadow.cpp" />
+    <ClCompile Include="duilib\Utils\XUnzip.cpp" />
+    <ClCompile Include="log\log4z.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="UIApplication.cpp" />
+    <ClCompile Include="UIWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lua51\lua51.vcxproj">
+      <Project>{62a8505d-d9bd-47e8-bfba-8af2e48662b2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\luaObj\luaObj.vcxproj">
+      <Project>{8e449801-fb58-4a0f-a63e-04a695bfc26b}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

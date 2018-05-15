@@ -5,13 +5,13 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua51", "lua51\lua51.vcxproj", "{62A8505D-D9BD-47E8-BFBA-8AF2E48662B2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuaDui", "luaDui\LuaDui\LuaDui.vcxproj", "{7E37119D-BD50-4EB9-990F-897D199E0D1A}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "demo", "demo\demo.vcxproj", "{01F84B3E-0C9E-40ED-965F-D7575DDF03D1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nsLuaDuiSkin", "nsLuaDuiSkin\nsLuaDuiSkin.vcxproj", "{05A82740-81AD-4A22-B111-A12F5B5EA330}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "luaObj", "luaObj\luaObj.vcxproj", "{8E449801-FB58-4A0F-A63E-04A695BFC26B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "luaDui", "luaDui\luaDui.vcxproj", "{50565855-8EC6-4DAE-8BF6-A7A50097DF54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +29,6 @@ Global
 		{62A8505D-D9BD-47E8-BFBA-8AF2E48662B2}.Release|x64.Build.0 = Release|x64
 		{62A8505D-D9BD-47E8-BFBA-8AF2E48662B2}.Release|x86.ActiveCfg = Release|Win32
 		{62A8505D-D9BD-47E8-BFBA-8AF2E48662B2}.Release|x86.Build.0 = Release|Win32
-		{7E37119D-BD50-4EB9-990F-897D199E0D1A}.Debug|x64.ActiveCfg = Debug|Win32
-		{7E37119D-BD50-4EB9-990F-897D199E0D1A}.Debug|x86.ActiveCfg = Debug|Win32
-		{7E37119D-BD50-4EB9-990F-897D199E0D1A}.Debug|x86.Build.0 = Debug|Win32
-		{7E37119D-BD50-4EB9-990F-897D199E0D1A}.Release|x64.ActiveCfg = Release|Win32
-		{7E37119D-BD50-4EB9-990F-897D199E0D1A}.Release|x86.ActiveCfg = Release|Win32
-		{7E37119D-BD50-4EB9-990F-897D199E0D1A}.Release|x86.Build.0 = Release|Win32
 		{01F84B3E-0C9E-40ED-965F-D7575DDF03D1}.Debug|x64.ActiveCfg = Debug|x64
 		{01F84B3E-0C9E-40ED-965F-D7575DDF03D1}.Debug|x64.Build.0 = Debug|x64
 		{01F84B3E-0C9E-40ED-965F-D7575DDF03D1}.Debug|x86.ActiveCfg = Debug|Win32
@@ -59,6 +53,14 @@ Global
 		{8E449801-FB58-4A0F-A63E-04A695BFC26B}.Release|x64.Build.0 = Release|x64
 		{8E449801-FB58-4A0F-A63E-04A695BFC26B}.Release|x86.ActiveCfg = Release|Win32
 		{8E449801-FB58-4A0F-A63E-04A695BFC26B}.Release|x86.Build.0 = Release|Win32
+		{50565855-8EC6-4DAE-8BF6-A7A50097DF54}.Debug|x64.ActiveCfg = Debug|x64
+		{50565855-8EC6-4DAE-8BF6-A7A50097DF54}.Debug|x64.Build.0 = Debug|x64
+		{50565855-8EC6-4DAE-8BF6-A7A50097DF54}.Debug|x86.ActiveCfg = Debug|Win32
+		{50565855-8EC6-4DAE-8BF6-A7A50097DF54}.Debug|x86.Build.0 = Debug|Win32
+		{50565855-8EC6-4DAE-8BF6-A7A50097DF54}.Release|x64.ActiveCfg = Release|x64
+		{50565855-8EC6-4DAE-8BF6-A7A50097DF54}.Release|x64.Build.0 = Release|x64
+		{50565855-8EC6-4DAE-8BF6-A7A50097DF54}.Release|x86.ActiveCfg = Release|Win32
+		{50565855-8EC6-4DAE-8BF6-A7A50097DF54}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
