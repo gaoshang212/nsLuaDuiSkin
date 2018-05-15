@@ -36,6 +36,7 @@ public:
 	lua_Integer  toInt()const;
 	bool		 toBool()const;
 	const char*  toString()const;
+	LPCTSTR	     toLPCTSTR() const;
 	lua_CFunction toCFunction()const;
 	void *		 toData()const;
 	void *		 checkData(const char* type)const;
