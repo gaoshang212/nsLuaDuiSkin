@@ -7,7 +7,9 @@
 #include "pluginapi.h"
 #include <Shlobj.h>
 
-class NsisMessageFilter :public DuiLib::IMessageFilterUI
+using namespace DuiLib;
+
+class NsisMessageFilter :public IMessageFilterUI
 {
 public:
 	LRESULT MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, bool& bHandled) override
@@ -149,7 +151,7 @@ public:
 		m_functions[std::string(fn)] = function - 1;
 	}
 
-	static DuiLib::CStdString InstallDir()
+	static DuiLib::CDuiString InstallDir()
 	{
 		return getuservariable(INST_INSTDIR);
 	}
@@ -162,7 +164,7 @@ public:
 		return 0;
 	}
 
-	static DuiLib::CStdString ShowFolderDialog()
+	static CDuiString ShowFolderDialog()
 	{
 		BROWSEINFO bi;
 		LPITEMIDLIST resultPIDL;
@@ -182,9 +184,11 @@ public:
 		bi.lParam = NULL;
 		bi.iImage = 0;
 
+
+
 		resultPIDL = SHBrowseForFolder(&bi);
 		if (!resultPIDL) {
-			return "";
+			return CDuiString();
 		}
 
 		TCHAR result[MAX_PATH];
@@ -198,7 +202,7 @@ public:
 		return result;
 	}
 
-	static void SetInstallDir(DuiLib::CStdString dir)
+	static void SetInstallDir(DuiLib::CDuiString dir)
 	{
 		return setuservariable(INST_INSTDIR, dir);
 	}

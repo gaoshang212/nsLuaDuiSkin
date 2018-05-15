@@ -470,7 +470,8 @@ bool CMarkup::_Parse(LPTSTR& pstrText, ULONG iParent)
     {
         if( *pstrText == _T('\0') && iParent <= 1 ) return true;
         _SkipWhitespace(pstrText);
-        if( *pstrText != _T('<') ) return _Failed(_T("Expected start tag"), pstrText);
+        if( *pstrText != _T('<') ) 
+			return _Failed(_T("Expected start tag"), pstrText);
         if( pstrText[1] == _T('/') ) return true;
         *pstrText++ = _T('\0');
         _SkipWhitespace(pstrText);
@@ -497,9 +498,11 @@ bool CMarkup::_Parse(LPTSTR& pstrText, ULONG iParent)
         LPCTSTR pstrName = pstrText;
         _SkipIdentifier(pstrText);
         LPTSTR pstrNameEnd = pstrText;
-        if( *pstrText == _T('\0') ) return _Failed(_T("Error parsing element name"), pstrText);
+        if( *pstrText == _T('\0') ) 
+			return _Failed(_T("Error parsing element name"), pstrText);
         // Parse attributes
-        if( !_ParseAttributes(pstrText) ) return false;
+        if( !_ParseAttributes(pstrText) ) 
+			return false;
         _SkipWhitespace(pstrText);
         if( pstrText[0] == _T('/') && pstrText[1] == _T('>') )
         {
@@ -509,17 +512,21 @@ bool CMarkup::_Parse(LPTSTR& pstrText, ULONG iParent)
         }
         else
         {
-            if( *pstrText != _T('>') ) return _Failed(_T("Expected start-tag closing"), pstrText);
+            if( *pstrText != _T('>') ) 
+				return _Failed(_T("Expected start-tag closing"), pstrText);
             // Parse node data
             pEl->iData = ++pstrText - m_pstrXML;
             LPTSTR pstrDest = pstrText;
-            if( !_ParseData(pstrText, pstrDest, _T('<')) ) return false;
+            if( !_ParseData(pstrText, pstrDest, _T('<')) ) 
+				return false;
             // Determine type of next element
             if( *pstrText == _T('\0') && iParent <= 1 ) return true;
-            if( *pstrText != _T('<') ) return _Failed(_T("Expected end-tag start"), pstrText);
+            if( *pstrText != _T('<') ) 
+				return _Failed(_T("Expected end-tag start"), pstrText);
             if( pstrText[0] == _T('<') && pstrText[1] != _T('/') ) 
             {
-                if( !_Parse(pstrText, iPos) ) return false;
+                if( !_Parse(pstrText, iPos) ) 
+					return false;
             }
             if( pstrText[0] == _T('<') && pstrText[1] == _T('/') ) 
             {
@@ -528,10 +535,12 @@ bool CMarkup::_Parse(LPTSTR& pstrText, ULONG iParent)
                 pstrText += 2;
                 _SkipWhitespace(pstrText);
                 SIZE_T cchName = pstrNameEnd - pstrName;
-                if( _tcsncmp(pstrText, pstrName, cchName) != 0 ) return _Failed(_T("Unmatched closing tag"), pstrText);
+                if( _tcsncmp(pstrText, pstrName, cchName) != 0 ) 
+					return _Failed(_T("Unmatched closing tag"), pstrText);
                 pstrText += cchName;
                 _SkipWhitespace(pstrText);
-                if( *pstrText++ != _T('>') ) return _Failed(_T("Unmatched closing tag"), pstrText);
+                if( *pstrText++ != _T('>') ) 
+					return _Failed(_T("Unmatched closing tag"), pstrText);
             }
         }
         *pstrNameEnd = _T('\0');

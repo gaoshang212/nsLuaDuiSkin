@@ -97,9 +97,9 @@ namespace DuiLib
 		if (pt.x >= rcClient.left + rcCaption.left && pt.x < rcClient.right - rcCaption.right \
 			&& pt.y >= rcCaption.top && pt.y < rcCaption.bottom) {
 			CControlUI* pControl = static_cast<CControlUI*>(paint_manager_.FindControl(pt));
-			if (pControl && _tcsicmp(pControl->GetClass(), _T("ButtonUI")) != 0 &&
-				_tcsicmp(pControl->GetClass(), _T("OptionUI")) != 0 /*&&
-				_tcsicmp(pControl->GetClass(), _T("TextUI")) != 0 */)
+			if (pControl && _tcscmp(pControl->GetClass(), DUI_CTR_BUTTON) != 0 &&
+				_tcscmp(pControl->GetClass(), DUI_CTR_OPTION) != 0 &&
+				_tcscmp(pControl->GetClass(), DUI_CTR_TEXT) != 0)
 				return HTCAPTION;
 		}
 
@@ -219,7 +219,7 @@ namespace DuiLib
 
 		CDialogBuilder builder;
 
-		CControlUI* pRoot = builder.Create(skin_xml_.GetData(), (UINT)0, this);
+		CControlUI* pRoot = builder.Create(skin_xml_.GetData(), (UINT)0, this, &paint_manager_);
 		if (pRoot)
 			paint_manager_.AttachDialog(pRoot);
 		else

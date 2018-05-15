@@ -128,9 +128,10 @@ LPCTSTR LuaObject::toLPCTSTR() const
 	std::string str = this->toString();
 
 #ifdef UNICODE
-	DWORD nWide = ::MultiByteToWideChar(CP_UTF8, 0, (LPCSTR)str.c_str(), -1, nullptr, 0);
-	LPCTSTR lpctstr = static_cast<LPTSTR>(malloc((nWide + 1) * sizeof(TCHAR)));
-	::MultiByteToWideChar(CP_UTF8, 0, (LPCSTR)str.c_str(), -1, nullptr, nWide);
+	DWORD nWide = ::MultiByteToWideChar(CP_UTF8, 0, (LPCSTR)str.c_str(), str.length(), nullptr, 0);
+	LPTSTR lpctstr = static_cast<LPTSTR>(malloc((nWide + 1) * sizeof(TCHAR)));
+	::MultiByteToWideChar(CP_UTF8, 0, (LPCSTR)str.c_str(), str.length(), lpctstr, nWide);
+	lpctstr[nWide] = _T('\0');
 	result = lpctstr;
 #else
 	result = str;

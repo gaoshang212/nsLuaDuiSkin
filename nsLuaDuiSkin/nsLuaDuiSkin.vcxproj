@@ -174,6 +174,11 @@
     </ClCompile>
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\luaDui\luaDui.vcxproj">
+      <Project>{50565855-8ec6-4dae-8bf6-a7a50097df54}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

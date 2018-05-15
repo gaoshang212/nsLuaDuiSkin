@@ -12,7 +12,7 @@ local app=UI.CApplicationUI.sharedInstance()
 local Window=UI.CWindowUI
 
 --app:setResourceZip("360Demo.zip")
-local wnd=Window.create({res="install.xml",name="songliwu",x=0,y=0,w=508,h=418, type="popup"})
+local wnd=Window.create({res="install.xml",name="songliwu",x=0,y=0,w=508,h=418})
 wnd:centerWindow()
 
 wnd:findControl("editDir"):setText(UI.Nsis.installDir())
@@ -29,10 +29,10 @@ nsis = {
         end
     end,
 
-    test = function()
-        local tab = wnd:findControl("wizardTab")
-        tab:selectItem(2)
-    end
+    -- test = function()
+    --     local tab = wnd:findControl("wizardTab")
+    --     tab:selectItem(2)
+    -- end
 }
 
 
