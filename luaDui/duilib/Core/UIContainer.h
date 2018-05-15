@@ -30,6 +30,8 @@ class CScrollBarUI;
 class DUILIB_API CContainerUI : public CControlUI, public IContainerUI
 {
 public:
+	LBIND_CLASS_DEFINE(CContainerUI, CControlUI);
+
     CContainerUI();
     virtual ~CContainerUI();
 

@@ -8,6 +8,8 @@ namespace DuiLib
 	class DUILIB_API CProgressUI : public CLabelUI
 	{
 	public:
+		LBIND_CLASS_DEFINE(CProgressUI, CLabelUI);
+
 		CProgressUI();
 
 		LPCTSTR GetClass() const;

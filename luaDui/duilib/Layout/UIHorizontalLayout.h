@@ -8,6 +8,8 @@ namespace DuiLib
 	class DUILIB_API CHorizontalLayoutUI : public CContainerUI
 	{
 	public:
+		LBIND_CLASS_DEFINE(CHorizontalLayoutUI, CContainerUI);
+
 		CHorizontalLayoutUI();
 
 		LPCTSTR GetClass() const;

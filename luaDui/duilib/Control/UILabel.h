@@ -19,6 +19,8 @@ namespace DuiLib
 	class DUILIB_API CLabelUI : public CControlUI
 	{
 	public:
+		LBIND_CLASS_DEFINE(CLabelUI, CControlUI);
+
 		CLabelUI();
 		~CLabelUI();
 

@@ -10,6 +10,8 @@ class CTxtWinHost;
 class DUILIB_API CRichEditUI : public CContainerUI, public IMessageFilterUI
 {
 public:
+	LBIND_CLASS_DEFINE(CRichEditUI, CContainerUI);
+
     CRichEditUI();
     ~CRichEditUI();
 
