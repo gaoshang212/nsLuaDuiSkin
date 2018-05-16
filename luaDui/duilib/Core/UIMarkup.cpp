@@ -478,39 +478,8 @@ namespace DuiLib {
 			// Skip comment or processing directive
 			if ((*pstrText == _T('!') || *pstrText == _T('?')) && *(pstrText + 1) != _T('[')) {
 				TCHAR ch = *pstrText;
-
 				if (*pstrText == _T('!')) ch = _T('-');
 				while (*pstrText != _T('\0') && !(*pstrText == ch && *(pstrText + 1) == _T('>'))) pstrText = ::CharNext(pstrText);
-
-				//if (*pstrText == _T('!'))
-				//{
-				//	if (_tcsnccmp(pstrText + 1, _T("--"), 2) == 0)
-				//	{
-				//		ch = _T('-');
-				//		while (*pstrText != _T('\0')
-				//			&& !(*pstrText == ch && *(pstrText + 1) == _T('>')))
-				//		{
-				//			pstrText = ::CharNext(pstrText);
-				//		}
-				//	}
-				//	else if (_tcsnccmp(pstrText + 1, _T("[CDATA["), 7) == 0)
-				//	{
-				//		while (*pstrText != _T('\0')
-				//			&& _tcsnccmp(pstrText , _T("]>"), 2) != 0)
-				//		{
-				//			pstrText = ::CharNext(pstrText);
-				//		}
-				//	}
-				//}
-				//else
-				//{
-				//	while (*pstrText != _T('\0')
-				//		&& !(*pstrText == ch && *(pstrText + 1) == _T('>')))
-				//	{
-				//		pstrText = ::CharNext(pstrText);
-				//	}
-				//}
-
 				if (*pstrText != _T('\0')) pstrText += 2;
 				_SkipWhitespace(pstrText);
 				continue;

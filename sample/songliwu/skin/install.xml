@@ -7,7 +7,7 @@
   <Font id="4" name="宋体" size="32" bold="false" />
   <Font id="5" name="微软雅黑" size="14" bold="false" />
   <Include source="default.xml" />
-  <VerticalLayout bkcolor="#00FFFFFF">
+  <VerticalLayout>
     <TabLayout name="wizardTab">
       <Include source="configpage.xml" />
       <Include source="installingpage.xml" />
