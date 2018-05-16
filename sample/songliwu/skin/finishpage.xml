@@ -2,7 +2,7 @@
 <Windows>
 	<!-- 完成 -->
 	<VerticalLayout >
-		<VerticalLayout width="570" height="247" bkimage="file='uninstall_bg1.png'">
+		<VerticalLayout width="576" height="247" bkimage="file='uninstall_bg1.png'">
 			<VerticalLayout bkimage="file='bgtop.png'" />
 		</VerticalLayout>
 		<VerticalLayout bkimage="file='bgbottom.png' corner='10,0,10,10'" bkcolor="#FFFFFFFF">

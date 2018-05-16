@@ -1,16 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Windows>
 	<!-- 安装目录 -->
-	<VerticalLayout>
-		<VerticalLayout width="570" height="247" bkimage="file='uninstall_bg1.png'">
+	<VerticalLayout bkcolor="#FF000000">
+		<VerticalLayout width="576" height="247" bkimage="file='uninstall_bg1.png'">
 			<VerticalLayout bkimage="file='bgtop.png'"></VerticalLayout>
 		</VerticalLayout>
-		<VerticalLayout bkimage="file='bgbottom.png' corner='10,0,10,10'">
+		<VerticalLayout name="panel" bkimage="file='bgbottom.png' corner='10,0,10,10'">
 			<Button name="btnInstall" padding="165,35,0,0" font="2" normalimage="file='install.png' source='0,0,240,38'" hotimage="file='install.png' source='0,38,240,76'" pushedimage="file='install.png' source='0,76,240,114'" height="38" width="240">
 				<Event>
 					<click>
 						<![CDATA[										
-								local tab = this:window():findControl("wizardTab")
+								local window = this:window();
+								window:resizeClient(576, 416)
+
+								local tab = window:findControl("wizardTab")
 								tab:selectItem(1)
 
 								UI.Nsis.install()
@@ -39,7 +42,7 @@
 				</HorizontalLayout>
 				<Control height="10"/>
 				<HorizontalLayout height="23">
-					<Option name="chkShotcut" width="95" text="生成快捷方式" textcolor="#FF000000" selected="false" valign="center" align="left" textpadding="18,2,0,0" normalimage="file='checkbox.png' source='0,0,13,13' dest='0,6,13,19'" normalhotimage="file='checkbox.png' source='0,0,13,13' dest='0,6,13,19'" selectedimage="file='checkbox.png' source='0,26,13,39' dest='0,6,13,19'" selectedhotimage="file='checkbox.png' source='0,26,13,39' dest='0,6,13,19'"/>
+					<Option name="chkShotcut" width="95" text="生成快捷方式"  textcolor="#FF000000" selected="false" valign="center" align="left" textpadding="18,2,0,0" normalimage="file='checkbox.png' source='0,0,13,13' dest='0,6,13,19'" normalhotimage="file='checkbox.png' source='0,0,13,13' dest='0,6,13,19'" selectedimage="file='checkbox.png' source='0,26,13,39' dest='0,6,13,19'" selectedhotimage="file='checkbox.png' source='0,26,13,39' dest='0,6,13,19'"/>
 					<Control width="30"/>
 					<Option name="chkQuickStart" width="125" text="添加到快速启动栏" textcolor="#FF000000" selected="true" valign="center" align="left" textpadding="18,2,0,0" normalimage="file='checkbox.png' source='0,0,13,13' dest='0,6,13,19'" normalhotimage="file='checkbox.png' source='0,0,13,13' dest='0,6,13,19'" selectedimage="file='checkbox.png' source='0,26,13,39' dest='0,6,13,19'" selectedhotimage="file='checkbox.png' source='0,26,13,39' dest='0,6,13,19'"/>
 					<Control width="30"/>
@@ -54,7 +57,7 @@
 						<click>
 							<![CDATA[										
 								local window = this:window()
-								
+
 								local install = window:findControl("btnInstall")
 								install:setEnabled(not this:isSelected())
 							]]>
@@ -63,7 +66,14 @@
 				</Option>
 				<Button name="btnAgreement" width="140" text="《牛牛截图示例协议》" textpadding="0,3,0,0" textcolor="0xFF2786e4" align="left">
 					<Event>
-						<click>							this:window():findControl("licenseshow"):setVisible(true)						</click>
+						<click>
+							local f = io.open("F:/Source/nsLuaDuiSkin/sample/songliwu/license.txt",'r')
+    						local content = f:read('*all')
+    						f:close()
+
+							this:window():findControl("licenseshow"):setVisible(true)
+							this:window():findControl("editLicense"):setText(content)
+						</click>
 					</Event>
 				</Button>
 				<Control />
@@ -81,7 +91,7 @@
 								local show = window:findControl("btnShowMore")
 								show:setVisible(false)
 
-								window:resizeClient(570, 500)
+								window:resizeClient(576, 506)
 							]]>
 						</click>
 					</Event>
@@ -100,7 +110,7 @@
 								local show = window:findControl("btnShowMore")
 								show:setVisible(true)
 								
-								window:resizeClient(570, 410)
+								window:resizeClient(576, 416)
 							]]>
 						</click>
 					</Event>

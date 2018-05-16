@@ -12,7 +12,7 @@ local app=UI.CApplicationUI.sharedInstance()
 local Window=UI.CWindowUI
 
 --app:setResourceZip("360Demo.zip")
-local wnd=Window.create({res="install.xml",name="songliwu",x=0,y=0,w=508,h=418})
+local wnd=Window.create({res="install.xml",name="songliwu",x=0,y=0,w=508,h=418,type="popup"})
 wnd:centerWindow()
 
 wnd:findControl("editDir"):setText(UI.Nsis.installDir())
@@ -35,7 +35,12 @@ nsis = {
     -- end
 }
 
-
+function readFile(fileName)
+    local f = assert(io.open(fileName,'r'))
+    local content = f:read('*all')
+    f:close()
+    return content
+end
 
 
 

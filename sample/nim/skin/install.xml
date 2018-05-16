@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Window size="508,418" sizebox="0,0,0,0" caption="0,0,0,410" bktrans="true">
+<Window size="508,418" sizebox="0,0,0,0" caption="0,0,0,410" layeredimage="file='public\bk\bk_shadow.png' corner='14,14,14,14'" opacity="255">
   <Font id="0" name="微软雅黑" size="12" bold="false" default="true" />
   <Font id="1" name="微软雅黑" size="12" bold="true" />
   <Font id="2" name="微软雅黑" size="24" bold="false" />
@@ -10,7 +10,7 @@
   <Font id="7" name="微软雅黑" size="13" bold="false" />
   <Font id="8" name="微软雅黑" size="18" bold="false" />
   <Include source="default.xml" />
-  <VerticalLayout bkimage="file='public\bk\bk_shadow.png' corner='14,14,14,14'" inset="14,14,14,14">
+  <VerticalLayout>
     <TabLayout name="wizardTab">
       <Include source="configpage.xml" />
       <Include source="installingpage.xml" />
