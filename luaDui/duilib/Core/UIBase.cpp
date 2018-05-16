@@ -479,7 +479,7 @@ void CWindowWnd::ResizeClient(int cx /*= -1*/, int cy /*= -1*/)
     if( !::GetClientRect(m_hWnd, &rc) ) return;
     if( cx != -1 ) rc.right = cx;
     if( cy != -1 ) rc.bottom = cy;
-    if( !::AdjustWindowRectEx(&rc, GetWindowStyle(m_hWnd), (!(GetWindowStyle(m_hWnd) & WS_CHILD) && (::GetMenu(m_hWnd) != NULL)), GetWindowExStyle(m_hWnd)) ) return;
+    //if( !::AdjustWindowRectEx(&rc, GetWindowStyle(m_hWnd), (!(GetWindowStyle(m_hWnd) & WS_CHILD) && (::GetMenu(m_hWnd) != NULL)), GetWindowExStyle(m_hWnd)) ) return;
     ::SetWindowPos(m_hWnd, NULL, 0, 0, rc.right - rc.left, rc.bottom - rc.top, SWP_NOZORDER | SWP_NOMOVE | SWP_NOACTIVATE);
 }
 
