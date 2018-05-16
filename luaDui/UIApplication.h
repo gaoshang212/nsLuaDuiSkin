@@ -51,6 +51,8 @@ namespace DuiLib
 		static bool LoadPlugin(LPCTSTR pstrModuleName) { return CPaintManagerUI::LoadPlugin(pstrModuleName); }
 		static CDuiPtrArray* GetPlugins() { return CPaintManagerUI::GetPlugins(); }
 
+		static TImageInfo* LoadImage(STRINGorID bitmap, LPCTSTR type = NULL, DWORD mask = 0) { return CRenderEngine::LoadImage(bitmap, type, mask); }
+
 		static CApplicationUI* SharedInstance() { return s_application; }
 
 		void PostRunable(RefCountedPtr<IRunbaleUI>);
@@ -70,7 +72,7 @@ namespace DuiLib
 
 		static CApplicationUI* s_application;
 
-		bool m_LoopFlag =  true;
+		bool m_LoopFlag = true;
 	};
 
 	//如果其他线程需要调用界面线程的lua，则必须通过PostUIRunable调用，直接调用会导致崩溃
