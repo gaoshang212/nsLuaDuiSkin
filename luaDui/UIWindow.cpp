@@ -190,6 +190,7 @@ namespace DuiLib
 	LRESULT CWindowUI::OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 	{
 		if (wParam == SC_CLOSE) {
+			::PostQuitMessage(0L);
 			bHandled = TRUE;
 			return 0;
 		}
