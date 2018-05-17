@@ -65,11 +65,14 @@ namespace lbind
 	LBIND_END_DEFINE_FUNC
 
 		//´´½¨builder
-	LBIND_DEFINE_FUNC(CWindowUI, CreateBuilder)
+		LBIND_DEFINE_FUNC(CWindowUI, CreateBuilder)
 		CDialogBuilder* builder = new CDialogBuilder();
 	return L.lreturn(builder->_lbindCToLua(&L));
 	LBIND_END_DEFINE_FUNC
 
+		LBIND_DEFINE_FUNC(CWindowUI, SetIcon)
+		pThis->SetIcon(arg[2].toLPCTSTR());
+	LBIND_END_DEFINE_FUNC
 }
 
 LBIND_BEGIN_DEFINE_LIB(CWindowUI)
@@ -86,6 +89,7 @@ LBIND_BEGIN_DEFINE_LIB(CWindowUI)
 	{ "resizeClient",lbind::ResizeClient },
 	{ "findControl",lbind::FindControl },
 	{ "createBuilder",lbind::CreateBuilder },
+	{ "setIcon",lbind::SetIcon },
 		LBIND_END_DEFINE_LIB
 
 

@@ -12,11 +12,15 @@ namespace DuiLib
 
 	CWindowUI::CWindowUI()
 	{
+
 	}
 
 	CWindowUI::~CWindowUI()
 	{
-
+		if (m_pIconInfo) {
+			::DestroyIcon(m_pIconInfo);
+			m_pIconInfo = NULL;
+		}
 	}
 
 	UINT CWindowUI::GetClassStyle() const
@@ -291,6 +295,32 @@ namespace DuiLib
 		return &paint_manager_;
 	}
 
+	void CWindowUI::SetIcon(CDuiString name = nullptr)
+	{
+		/*if(name)
+		{
+			::LoadImage(CApplicationUI::GetInstance(),name.GetData(), IMAGE_ICON,)
+		}*/
+		if (m_pIconInfo) {
+			::DestroyIcon(m_pIconInfo);
+			m_pIconInfo = NULL;
+		}
+
+		m_pIconInfo = static_cast<HICON>(::LoadImage(CApplicationUI::GetInstance(), name.GetData(), IMAGE_ICON, 0, 0,
+		                                              LR_DEFAULTCOLOR | LR_LOADFROMFILE | LR_DEFAULTSIZE));//CRenderEngine::LoadImage(name.GetData(), NULL, 0);
+
+		if (m_pIconInfo)
+			::PostMessage(this->m_hWnd, WM_SETICON, (WPARAM)FALSE, (LPARAM)m_pIconInfo);
+	}
+
+	HICON CWindowUI::CreateIcon(HBITMAP hBitmap)
+	{
+		Gdiplus::Bitmap* pTmpBitmap = Gdiplus::Bitmap::FromHBITMAP(hBitmap, NULL);
+		HICON hIcon = NULL;
+		pTmpBitmap->GetHICON(&hIcon);
+		delete pTmpBitmap;
+		return hIcon;
+	}
 
 
 

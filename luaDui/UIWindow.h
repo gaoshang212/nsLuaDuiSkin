@@ -70,11 +70,16 @@ namespace DuiLib
 		CControlUI* FindControl(LPCTSTR name) { return paint_manager_.FindControl(name); }
 		CPaintManagerUI* GetManager();
 
+		void SetIcon(CDuiString name);
+
 	protected:
 		CPaintManagerUI paint_manager_;
 		CDuiString skin_xml_;
 
 		static std::map<HWND, CWindowUI*> m_windows;
+		HICON m_pIconInfo = nullptr;
+
+		HICON CreateIcon(HBITMAP hBitmap);
 	};
 
 
