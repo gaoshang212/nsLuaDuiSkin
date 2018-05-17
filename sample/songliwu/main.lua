@@ -30,20 +30,7 @@ nsis = {
             tab:selectItem(2)
         end
     end,
-
-    -- test = function()
-    --     local tab = wnd:findControl("wizardTab")
-    --     tab:selectItem(2)
-    -- end
 }
-
-function readFile(fileName)
-    local f = assert(io.open(fileName,'r'))
-    local content = f:read('*all')
-    f:close()
-    return content
-end
-
 
 
 

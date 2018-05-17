@@ -137,11 +137,19 @@ public:
 		LOGE("the progress is %f", progress);
 	}
 
-	static void CallFunction(const char* fn)
+	static void CallFunction(const char* fn, CDuiString strs[] = nullptr, int count = 0)
 	{
 		auto item = m_functions[std::string(fn)];
 		if (item > 0)
 		{
+			if (strs)
+			{
+				for (int i = 0; i < count; i++)
+				{
+					pushstring(strs[i].GetData());
+				}
+			}
+
 			m_extra->ExecuteCodeSegment(item, nullptr);
 		}
 	}

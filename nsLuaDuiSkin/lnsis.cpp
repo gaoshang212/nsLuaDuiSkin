@@ -19,6 +19,7 @@ namespace lbindnsis
 
 		LBIND_DEFINE_STATIC_FUNC(Nsis, SetInstallDir)
 		LuaObject obj = arg[1];
+
 	if (obj.isString())
 	{
 		Nsis::SetInstallDir(obj.toLPCTSTR());
@@ -32,9 +33,11 @@ namespace lbindnsis
 		LBIND_DEFINE_STATIC_FUNC(Nsis, Call)
 		CHECK_ARG_STRING(1);
 
+	int count = arg.count();
 	LuaObject fn = arg[1];
 	if (fn.isString()) {
-		Nsis::CallFunction(fn.toString());
+		CDuiString* paramters = new CDuiString[count - 1];
+		Nsis::CallFunction(fn.toString(), paramters, count - 1);
 	}
 
 	LBIND_END_DEFINE_FUNC
