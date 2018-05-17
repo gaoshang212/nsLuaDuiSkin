@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Window size="576,416" sizebox="0,0,0,0" caption="0,0,0,810" layeredimage="file='bk.png' corner='10,10,10,10'">
+<Window size="576,416" sizebox="0,0,0,0" caption="0,0,0,810" roundcorner="3,3,4,4" >
+<!-- layeredimage="file='bk.png' corner='10,10,10,10'" -->
   <Font id="0" name="微软雅黑" size="12" bold="false" default="true"/>
   <Font id="1" name="微软雅黑" size="12" bold="true" />
   <Font id="2" name="微软雅黑" size="24" bold="false" />
   <Font id="3" name="微软雅黑" size="16" bold="false" />
   <Font id="4" name="宋体" size="32" bold="false" />
   <Font id="5" name="微软雅黑" size="14" bold="false" />
-  <Include source="default.xml" />
-  <VerticalLayout>
-    <TabLayout name="wizardTab">
+  <!-- <Include source="default.xml" /> -->
+  <VerticalLayout bkcolor="#FFFFFFFF">
+    <!-- <TabLayout name="wizardTab">
       <Include source="configpage.xml" />
       <Include source="installingpage.xml" />
       <Include source="finishpage.xml" />
@@ -28,6 +29,6 @@
           <click>UI.CApplicationUI.sharedInstance():quit()</click>
         </Event>
       </Button>
-    </HorizontalLayout>
-  </VerticalLayout>
+    </HorizontalLayout>-->
+  </VerticalLayout> 
 </Window>

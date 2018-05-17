@@ -68,7 +68,7 @@ namespace lbind
 		pThis->LoadPlugin(CDuiString(arg[2].toLPCTSTR()));
 	LBIND_END_DEFINE_FUNC
 
-		LBIND_DEFINE_FUNC(CApplicationUI, SetIcon)
+	LBIND_DEFINE_FUNC(CApplicationUI, SetDefaultIcon)
 		pThis->SetIcon(CDuiString(arg[2].toLPCTSTR()));
 	LBIND_END_DEFINE_FUNC
 
@@ -94,6 +94,7 @@ LBIND_BEGIN_DEFINE_LIB(CApplicationUI)
 	{ "setHSL",lbind::SetHSL },
 	{ "reloadSkin",lbind::ReloadSkin },
 	{ "loadPlugin",lbind::LoadPlugin },
+	{ "setIcon",lbind::SetDefaultIcon },
 
 		LBIND_END_DEFINE_LIB
 
