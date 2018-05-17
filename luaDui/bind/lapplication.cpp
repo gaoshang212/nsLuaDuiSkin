@@ -68,6 +68,9 @@ namespace lbind
 		pThis->LoadPlugin(CDuiString(arg[2].toLPCTSTR()));
 	LBIND_END_DEFINE_FUNC
 
+		LBIND_DEFINE_FUNC(CApplicationUI, SetIcon)
+		pThis->SetIcon(CDuiString(arg[2].toLPCTSTR()));
+	LBIND_END_DEFINE_FUNC
 
 }
 
