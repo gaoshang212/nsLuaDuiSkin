@@ -17,6 +17,8 @@ wnd:centerWindow()
 
 wnd:findControl("editDir"):setText(UI.Nsis.installDir())
 
+--wnd:setIcon(app:resourcePath()..'logo.ico')
+
 nsis = {
     onProgress = function(progress)
         local control = wnd:findControl("slrProgress")

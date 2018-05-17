@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Window size="576,416" sizebox="0,0,0,0" caption="0,0,0,810" >
-<!-- layeredimage="file='bk.png' corner='10,10,10,10'" -->
+<Window size="576,416" sizebox="0,0,0,0" caption="0,0,0,810" layeredimage="file='bk.png' corner='10,10,10,10'">
   <Font id="0" name="微软雅黑" size="12" bold="false" default="true"/>
   <Font id="1" name="微软雅黑" size="12" bold="true" />
   <Font id="2" name="微软雅黑" size="24" bold="false" />

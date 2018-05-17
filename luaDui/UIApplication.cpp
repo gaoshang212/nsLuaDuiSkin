@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "UIApplication.h"
+#include <shlwapi.h>
 
 #ifdef LUV_SUPPORT
 #include "luv/luv.h"
@@ -109,12 +110,25 @@ namespace DuiLib
 
 	void CApplicationUI::SetIcon(CDuiString icon)
 	{
+		if(icon.GetLength() <= 0)
+		{
+			return;
+		}
+
 		if (m_hicon) {
 			::DestroyIcon(m_hicon);
 			m_hicon = nullptr;
 		}
 
-		m_hicon = static_cast<HICON>(::LoadImage(CApplicationUI::GetInstance(), icon.GetData(), IMAGE_ICON, 0, 0,
+		TCHAR path[MAX_PATH] = {0};
+
+		if(PathIsRelative(icon))
+		{
+			PathAppend(path, CApplicationUI::GetResourcePath().GetData());
+		}
+		PathAppend(path, icon);
+
+		m_hicon = static_cast<HICON>(::LoadImage(CApplicationUI::GetInstance(), path, IMAGE_ICON, 0, 0,
 			LR_DEFAULTCOLOR | LR_LOADFROMFILE | LR_DEFAULTSIZE));
 	}
 

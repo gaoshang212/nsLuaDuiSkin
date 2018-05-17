@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "UIWindow.h"
+#include <shlwapi.h>
 
 #if !defined(UNDER_CE) && defined(_DEBUG)
 #define new   new(_NORMAL_BLOCK, __FILE__, __LINE__)
@@ -308,7 +309,15 @@ namespace DuiLib
 			m_pIconInfo = NULL;
 		}
 
-		m_pIconInfo = static_cast<HICON>(::LoadImage(CApplicationUI::GetInstance(), name.GetData(), IMAGE_ICON, 0, 0,
+		TCHAR path[MAX_PATH] = { 0 };
+
+		if (PathIsRelative(name))
+		{
+			PathAppend(path, CApplicationUI::GetResourcePath().GetData());
+		}
+		PathAppend(path, name);
+
+		m_pIconInfo = static_cast<HICON>(::LoadImage(CApplicationUI::GetInstance(), path, IMAGE_ICON, 0, 0,
 			LR_DEFAULTCOLOR | LR_LOADFROMFILE | LR_DEFAULTSIZE));
 
 		NotiyIcon(m_pIconInfo);
@@ -316,7 +325,7 @@ namespace DuiLib
 
 	void CWindowUI::NotiyIcon(HICON icon)
 	{
-		if(icon)
+		if (icon)
 		{
 			::PostMessage(this->m_hWnd, WM_SETICON, (WPARAM)FALSE, (LPARAM)icon);
 		}

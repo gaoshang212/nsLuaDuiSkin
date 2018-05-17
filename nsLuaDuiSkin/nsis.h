@@ -184,8 +184,6 @@ public:
 		bi.lParam = NULL;
 		bi.iImage = 0;
 
-
-
 		resultPIDL = SHBrowseForFolder(&bi);
 		if (!resultPIDL) {
 			return CDuiString();
