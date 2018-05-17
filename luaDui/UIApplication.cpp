@@ -102,6 +102,22 @@ namespace DuiLib
 		m_LoopFlag = false;
 	}
 
+	HICON CApplicationUI::GetIcon() const
+	{
+		return m_hicon;
+	}
+
+	void CApplicationUI::SetIcon(CDuiString icon)
+	{
+		if (m_hicon) {
+			::DestroyIcon(m_hicon);
+			m_hicon = nullptr;
+		}
+
+		m_hicon = static_cast<HICON>(::LoadImage(CApplicationUI::GetInstance(), icon.GetData(), IMAGE_ICON, 0, 0,
+			LR_DEFAULTCOLOR | LR_LOADFROMFILE | LR_DEFAULTSIZE));
+	}
+
 	RefCountedPtr<IRunbaleUI> CApplicationUI::GetRunable()
 	{
 		RefCountedPtr<IRunbaleUI> runable;

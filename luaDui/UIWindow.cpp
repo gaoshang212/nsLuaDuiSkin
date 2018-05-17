@@ -41,6 +41,12 @@ namespace DuiLib
 	void CWindowUI::Init()
 	{
 		m_windows[*this] = this;// (std::make_pair(*this, this));
+
+		HICON icon = CApplicationUI::SharedInstance()->GetIcon();
+		if (icon)
+		{
+			NotiyIcon(icon);
+		}
 	}
 
 	LRESULT CWindowUI::OnClose(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& bHandled)
@@ -297,29 +303,23 @@ namespace DuiLib
 
 	void CWindowUI::SetIcon(CDuiString name = nullptr)
 	{
-		/*if(name)
-		{
-			::LoadImage(CApplicationUI::GetInstance(),name.GetData(), IMAGE_ICON,)
-		}*/
 		if (m_pIconInfo) {
 			::DestroyIcon(m_pIconInfo);
 			m_pIconInfo = NULL;
 		}
 
 		m_pIconInfo = static_cast<HICON>(::LoadImage(CApplicationUI::GetInstance(), name.GetData(), IMAGE_ICON, 0, 0,
-		                                              LR_DEFAULTCOLOR | LR_LOADFROMFILE | LR_DEFAULTSIZE));//CRenderEngine::LoadImage(name.GetData(), NULL, 0);
+			LR_DEFAULTCOLOR | LR_LOADFROMFILE | LR_DEFAULTSIZE));
 
-		if (m_pIconInfo)
-			::PostMessage(this->m_hWnd, WM_SETICON, (WPARAM)FALSE, (LPARAM)m_pIconInfo);
+		NotiyIcon(m_pIconInfo);
 	}
 
-	HICON CWindowUI::CreateIcon(HBITMAP hBitmap)
+	void CWindowUI::NotiyIcon(HICON icon)
 	{
-		Gdiplus::Bitmap* pTmpBitmap = Gdiplus::Bitmap::FromHBITMAP(hBitmap, NULL);
-		HICON hIcon = NULL;
-		pTmpBitmap->GetHICON(&hIcon);
-		delete pTmpBitmap;
-		return hIcon;
+		if(icon)
+		{
+			::PostMessage(this->m_hWnd, WM_SETICON, (WPARAM)FALSE, (LPARAM)icon);
+		}
 	}
 
 

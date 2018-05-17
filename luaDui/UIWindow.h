@@ -79,7 +79,7 @@ namespace DuiLib
 		static std::map<HWND, CWindowUI*> m_windows;
 		HICON m_pIconInfo = nullptr;
 
-		HICON CreateIcon(HBITMAP hBitmap);
+		void CWindowUI::NotiyIcon(HICON icon);
 	};
 
 
