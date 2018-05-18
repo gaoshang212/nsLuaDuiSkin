@@ -3,7 +3,7 @@
 
 
 //基类需要实现以下几个函数
-#define LBIND_BASE_CLASS_DEFINE(Class)\
+#define LBIND_BASE_CLASS_DEFINE_WHIT(Class, Table)\
 private:\
 	static const LuaReg _lualib[];\
 protected:\
@@ -11,7 +11,7 @@ protected:\
 	{\
 		LuaEngine* L=LuaManager::instance()->current();\
 		LuaTable luaClass=L->newLib((LuaReg*)lib);\
-		LuaTable envTable=L->getGlobal("UI");\
+		LuaTable envTable=L->getGlobal(Table);\
 		luaClass.setMetatable(envTable.getTable(baseName));\
 		luaClass.setTable("__index",luaClass);\
 		envTable.setTable(className,luaClass);\
@@ -35,7 +35,7 @@ protected:\
 			return L->newNil();\
 		}\
 		LuaObject obj=L->newData(&ptr,sizeof(ptr));\
-		LuaTable envTable=L->getGlobal("UI");\
+		LuaTable envTable=L->getGlobal(Table);\
 		obj.setMetatable(envTable.getTable(className));\
 		return obj;\
 	}\
@@ -44,7 +44,7 @@ public:\
 	{\
 		LuaTable llib=L->newLib((LuaReg*)_lualib);\
 		llib.setTable("__index",llib);\
-		LuaTable envTable=L->getGlobal("UI");\
+		LuaTable envTable=L->getGlobal(Table);\
 		envTable.setTable(#Class,llib);\
 	}\
 	static Class* _lbindLuaToC(LuaObject obj)\
@@ -56,7 +56,7 @@ public:\
 		return _lbindBaseCToLua(L,this,#Class);\
 	}
 
-
+#define LBIND_BASE_CLASS_DEFINE(Class) LBIND_BASE_CLASS_DEFINE_WHIT(Class,"UI")
 
 
 #define LBIND_CLASS_DEFINE(Class,BaseClass)\
