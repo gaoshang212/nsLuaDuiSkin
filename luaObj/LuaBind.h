@@ -3,7 +3,7 @@
 
 
 //基类需要实现以下几个函数
-#define LBIND_BASE_CLASS_DEFINE_WHIT(Class, Table)\
+#define LBIND_BASE_CLASS_DEFINE_WITH_TABLENAME(Class, Table)\
 private:\
 	static const LuaReg _lualib[];\
 protected:\
@@ -56,7 +56,7 @@ public:\
 		return _lbindBaseCToLua(L,this,#Class);\
 	}
 
-#define LBIND_BASE_CLASS_DEFINE(Class) LBIND_BASE_CLASS_DEFINE_WHIT(Class,"UI")
+#define LBIND_BASE_CLASS_DEFINE(Class) LBIND_BASE_CLASS_DEFINE_WITH_TABLENAME(Class,"UI")
 
 
 #define LBIND_CLASS_DEFINE(Class,BaseClass)\
