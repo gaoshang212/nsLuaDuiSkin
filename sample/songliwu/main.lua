@@ -12,7 +12,7 @@ local app=UI.CApplicationUI.sharedInstance()
 local Window=UI.CWindowUI
 
 --app:setResourceZip("360Demo.zip")
-local wnd=Window.create({res="install.xml",name="songliwu",x=0,y=0,w=508,h=418,type="popup"})
+local wnd=Window.create({res="install.xml",name="送礼物",x=0,y=0,w=508,h=418,type="popup"})
 wnd:centerWindow()
 
 wnd:findControl("editDir"):setText(UI.Nsis.installDir())
