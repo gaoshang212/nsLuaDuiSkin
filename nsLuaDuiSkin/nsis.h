@@ -99,7 +99,7 @@ extern  extra_parameters* g_pluginParms;
 class Nsis
 {
 public:
-	LBIND_BASE_CLASS_DEFINE(Nsis);
+	LBIND_BASE_CLASS_DEFINE(Nsis,"NSIS");
 
 	static void Install()
 	{
