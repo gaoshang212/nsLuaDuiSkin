@@ -53,7 +53,7 @@ namespace lbind
 	LBIND_END_DEFINE_FUNC
 
 		LBIND_DEFINE_FUNC(CControlUI, SetPadding)
-		pThis->SetPadding(toRect(arg[2]));
+		pThis->SetPadding(toPaddingRect(arg[2]));
 	LBIND_END_DEFINE_FUNC
 
 		LBIND_DEFINE_FUNC(CControlUI, GetFixedXY)

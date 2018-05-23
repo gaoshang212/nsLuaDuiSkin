@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Windows size="800,650" >
+    <VerticalLayout visible="false" name="licenseshow" float="true" pos="0,0,800,650" bkimage="file='images/bk.png'">
+        <HorizontalLayout height="16" width="53" padding="21,17,0,0" >
+            <Button normalimage="file='images/xueke_return.png'" >
+                <Event>
+                    <click>
+                        <![CDATA[										
+							this:window():findControl("licenseshow"):setVisible(false)
+						]]>
+                    </click>
+                </Event>
+            </Button>
+        </HorizontalLayout>
+        <VerticalLayout padding="45,20,45,45" bkcolor="#FFFFFFFF">
+            <VerticalLayout padding="40,30,40,3" height="80">
+                <Label text="新东方在线软件许可及服务协议" font="2" align="left" textcolor="#FF686868"/>
+                <HorizontalLayout height="2" bkcolor="#FFE0E0E0" padding="0,25,0,0"  />
+            </VerticalLayout>
+            <RichEdit font="9" readonly="true" inset="40,0,5,3" name="editLicense" autovscroll="true" vscrollbar="true" textcolor="0xFF686868" bordersize="1" bkcolor="#FFFFFFFF" 
+                      vscrollbarstyle="padding=&quot;20,0,0,0&quot; width=&quot;10&quot; showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; button1normalimage=&quot;file='images/scroll.png' source='0,0,8,8'&quot; button1hotimage=&quot;file='images/scroll.png' source='0,0,8,8'&quot; button1pushedimage=&quot;file='images/scroll.png' source='0,0,8,8'&quot; button2normalimage=&quot;file='images/scroll.png' source='0,42,8,50'&quot; button2hotimage=&quot;file='images/scroll.png' source='0,42,8,50'&quot; button2pushedimage=&quot;file='images/scroll.png' source='0,42,8,50'&quot; thumbnormalimage=&quot;file='images/scroll.png' source='0,8,8,25' corner='5,5,5,5' &quot; thumbhotimage=&quot;file='images/scroll.png' source='0,8,8,25' corner='5,5,5,5' &quot; thumbpushedimage=&quot;file='images/scroll.png' source='0,8,8,25' corner='5,5,5,5'&quot; bknormalimage=&quot;file='images/scroll.png' source='0,25,8,42' corner='5,5,5,5' &quot; bkhotimage=&quot;file='images/scroll.png' source='0,25,8,42' corner='5,5,5,5'&quot; bkpushedimage=&quot;file='images/scroll.png' source='0,25,8,42' corner='5,5,5,5'&quot;" />    
+        </VerticalLayout>
+    </VerticalLayout>
+</Windows>

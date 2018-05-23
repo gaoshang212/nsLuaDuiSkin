@@ -40,6 +40,7 @@ namespace DuiLib
 		LBIND_REGISTER_CLASS(CSliderUI,&m_lua);
 		LBIND_REGISTER_CLASS(CEditUI,&m_lua);
 		LBIND_REGISTER_CLASS(CScrollBarUI,&m_lua);
+		LBIND_REGISTER_CLASS(CCheckBoxUI, &m_lua);
 
 		LBIND_REGISTER_CLASS(CContainerUI,&m_lua);
 		LBIND_REGISTER_CLASS(CVerticalLayoutUI,&m_lua);

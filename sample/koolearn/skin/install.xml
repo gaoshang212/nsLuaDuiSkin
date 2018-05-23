@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+    <VerticalLayout>
+        <VerticalLayout bkimage="images/animation/start_01.png" width="800" height="349" />
+        <VerticalLayout name="defaultInstall" padding="0,30,0,0">
+            <HorizontalLayout bkimage="file='images/welcom_text.png'" height="26" width="329" align="center" padding="235,0,0,0" />
+            <Button name="btnInstall" normalimage="file='images/install.png' source='0,0,220,50'" hotimage="file='images/install.png' source='0,50,220,100'" pushedimage="file='images/install.png' source='0,100,220,150'" disabledimage="file='images/install.png' source='0,150,220,200'" padding="290,30,0,0" width="220" height="50">
+                <Event>
+                    <click>
+                        <![CDATA[
+                            UI.Nsis.install()
+                            this:window():findControl("tab"):selectItem(1)
+                        ]]>
+                    </click>
+                </Event>
+            </Button>
+            <Container />
+            <HorizontalLayout padding="11,0,0,13" height="20">
+                <Option name="chkAgree" width="125" height="20" font="7" text="我已经阅读并同意" textcolor="#FFFFFFFF" selected="true" textpadding="20,0,0,0" valign="center" align="left" normalimage="file='images/checkbox/check_no.png' dest='0,2,16,18'" normalhotimage="file='images/checkbox/check_no.png' dest='0,2,16,18'" selectedimage="file='images/checkbox/check_yes.png' dest='0,2,16,18'" selectedhotimage="file='images/checkbox/check_yes.png' dest='0,2,16,18'">
+                    <Event>
+                        <click>
+                            <![CDATA[										
+                                local window = this:window()
+
+                                local install = window:findControl("btnInstall")
+                                install:setEnabled(not this:isSelected())
+                            ]]>
+                        </click>
+                    </Event>
+                </Option>
+                <Button name="btnAgreement" width="220" font="9" text="《新东方在线 用户许可协议》" padding="0,-2,0,0" textpadding="5,0,0,0" textcolor="#FFFFFFFF" align="left" valign="center">
+                    <Event>
+                        <click>
+                            <![CDATA[										
+                                local window = this:window()
+
+                                local license = window:findControl("licenseshow")
+                                license:setVisible(true)
+
+                                local app=UI.CApplicationUI.sharedInstance()
+
+                                local f = io.open(app:resourcePath().."..\\license.txt",'r')
+                                local content = f:read('*all')
+                                f:close()
+
+                                window:findControl("editLicense"):setText(content)
+                            ]]>
+                        </click>
+                    </Event>
+                </Button>
+                <Container />
+                <Button width="90" font="9" showhtml="true" text="<u>自定义安装</u>" padding="0,0,5,0" textpadding="5,0,0,0" textcolor="#FFFFFFFF" align="left" valign="center">
+                    <Event>
+                        <click>
+                            <![CDATA[										
+                                local window = this:window()
+
+                                window:findControl("defaultInstall"):setVisible(false)
+                                window:findControl("customInstall"):setVisible(true)
+
+                                local edit = window:findControl("installDir")
+                                edit:setText(UI.Nsis.installDir());
+                            ]]>
+                        </click>
+                    </Event>
+                </Button>
+            </HorizontalLayout>
+        </VerticalLayout>
+        <VerticalLayout name="customInstall" padding="0,30,0,0" visible="false">
+            <HorizontalLayout padding="207,0,0,0" width="402" height="36">
+            <RichEdit font="5" name="installDir" readonly="true" text="" textcolor="0xFFA3A3A3" bkcolor="#FFFFFFFF" inset="5,8,2,2" autohscroll="true" bordervisible="true" leftbordersize="1" topbordersize="1" bottombordersize="1" bordercolor="0xFFD1D1D1" focusbordercolor="0xFFD1D1D1" wantreturn="false" wantctrlreturn="false" multiline="false" />
+            <Button font="5" text="更改" bkcolor="#FFECECEC" textcolor="#FF828282" width="76">
+                <Event>
+                    <click>
+                        <![CDATA[										
+							local dir = UI.Nsis.showFolderDialog()
+							if(dir ~= nil and dir ~= "")
+							then
+								this:window():findControl("installDir"):setText(dir)	
+							end
+						]]>
+                    </click>
+                </Event>
+            </Button>
+        </HorizontalLayout>
+        <HorizontalLayout padding="207,30,0,0" height="50">
+            <Button name="btnInstall" normalimage="file='images/install.png' source='0,0,220,50'" hotimage="file='images/install.png' source='0,50,220,100'" pushedimage="file='images/install.png' source='0,100,220,150'" disabledimage="file='images/install.png' source='0,150,220,200'" width="220" height="50">
+                <Event>
+                    <click>
+                        <![CDATA[				
+                            local window = this:window()						
+							local dir = window:findControl("installDir"):text()	
+							UI.Nsis.setInstallDir(dir)
+                            UI.Nsis.install()
+
+                            window:findControl("tab"):selectItem(1)
+						]]>
+                    </click>
+                </Event>
+            </Button>
+            <Button normalimage="file='images/custom_return.png'" padding="14,0,0,0" width="167" height="50">
+                <Event>
+                    <click>
+                        <![CDATA[										
+							local window = this:window()
+							window:findControl("defaultInstall"):setVisible(true)
+                            window:findControl("customInstall"):setVisible(false)
+						]]>
+                    </click>
+                </Event>
+            </Button>
+        </HorizontalLayout>
+        </VerticalLayout>
+    </VerticalLayout>
+</Window>

@@ -108,9 +108,13 @@ namespace DuiLib
 		if (pt.x >= rcClient.left + rcCaption.left && pt.x < rcClient.right - rcCaption.right \
 			&& pt.y >= rcCaption.top && pt.y < rcCaption.bottom) {
 			CControlUI* pControl = static_cast<CControlUI*>(paint_manager_.FindControl(pt));
-			if (pControl && _tcscmp(pControl->GetClass(), DUI_CTR_BUTTON) != 0 &&
-				_tcscmp(pControl->GetClass(), DUI_CTR_OPTION) != 0 &&
-				_tcscmp(pControl->GetClass(), DUI_CTR_TEXT) != 0)
+			if (pControl && _tcscmp(pControl->GetClass(), DUI_CTR_BUTTON) != 0
+				&& _tcscmp(pControl->GetClass(), DUI_CTR_OPTION) != 0
+				&& _tcscmp(pControl->GetClass(), DUI_CTR_TEXT) != 0
+				&& _tcscmp(pControl->GetClass(), DUI_CTR_SCROLLBAR) != 0
+				&& _tcscmp(pControl->GetClass(), DUI_CTR_EDIT) != 0
+				&& _tcscmp(pControl->GetClass(), DUI_CTR_RICHEDIT) != 0)
+
 				return HTCAPTION;
 		}
 
@@ -214,7 +218,7 @@ namespace DuiLib
 		LRESULT lRes = CWindowWnd::HandleMessage(uMsg, wParam, lParam);
 #endif
 		return lRes;
-	}
+		}
 
 
 	LRESULT CWindowUI::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
@@ -340,4 +344,4 @@ namespace DuiLib
 
 
 
-}
+	}

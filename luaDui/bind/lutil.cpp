@@ -38,6 +38,16 @@ namespace lbind
 		return rc;
 	}
 
+	RECT toPaddingRect(LuaTable obj)
+	{
+		RECT rc;
+		rc.left = obj.getTable("x").toInt();
+		rc.top = obj.getTable("y").toInt();
+		rc.right = obj.getTable("w").toInt();
+		rc.bottom = obj.getTable("h").toInt();
+		return rc;
+	}
+
 	SIZE toSize(LuaTable obj)
 	{
 		SIZE sz;

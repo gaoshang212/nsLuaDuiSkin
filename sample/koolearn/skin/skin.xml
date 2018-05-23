@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window size="800,650" sizebox="0,0,0,0" caption="0,0,0,810">
+  <Font id="0" name="微软雅黑" size="12" bold="false" default="true" />
+  <Font id="1" name="微软雅黑" size="12" bold="true" />
+  <Font id="2" name="微软雅黑" size="26" bold="false" />
+  <Font id="3" name="微软雅黑" size="16" bold="false" />
+  <Font id="4" name="宋体" size="32" bold="false" />
+  <Font id="5" name="微软雅黑" size="14" bold="false" />
+  <Font id="6" name="微软雅黑" size="14" bold="true" />
+  <Font id="7" name="微软雅黑" size="13" bold="false" />
+  <Font id="8" name="微软雅黑" size="18" bold="false" />
+  <Font id="9" name="微软雅黑" size="15" bold="false" />
+  <Font id="10" name="微软雅黑" size="16" bold="true" />
+  <!-- <Include source="default.xml" /> -->
+  <VerticalLayout bkimage="file='images/bk.png'">
+    <TabLayout name="tab">
+      <Include source="install.xml" />
+      <Include source="installing.xml" />
+      <Include source="finish.xml" />
+    </TabLayout>
+    <HorizontalLayout float="true" pos="0,8,786,34">
+      <Container />
+      <Button name="btnFinishedMin" width="32" height="26" normalimage="file='images/min1.png' source='0,0,32,26'" hotimage="file='images/min1.png' source='0,26,32,52'" pushedimage="file='images/min1.png' source='0,52,32,78'">
+        <Event>
+          <click>this:window():showMin()</click>
+        </Event>
+      </Button>
+      <Button name="btnClose" width="29" height="26" normalimage="file='images/close1.png' source='0,0,29,26'" hotimage="file='images/close1.png' source='0,26,29,52'" pushedimage="file='images/close1.png' source='0,52,29,78'">
+        <Event>
+          <click>UI.CApplicationUI.sharedInstance():quit()</click>
+        </Event>
+      </Button>
+    </HorizontalLayout>
+    <Include source="license.xml" />
+  </VerticalLayout>
+</Window>

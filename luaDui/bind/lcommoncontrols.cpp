@@ -510,3 +510,23 @@ LBIND_BEGIN_DEFINE_LIB(CScrollBarUI)
 	{"lineSize",lbind::GetLineSize},
 	{"setLineSize",lbind::SetLineSize},
 LBIND_END_DEFINE_LIB
+
+
+namespace lbind
+{
+	LBIND_DEFINE_FUNC(CCheckBoxUI, SetCheck)
+		pThis->SetCheck(arg[2].toBool(), arg[3].toBool());
+	LBIND_END_DEFINE_FUNC
+
+	LBIND_DEFINE_FUNC(CCheckBoxUI, GetCheck)
+		return L.lreturn(pThis->GetCheck());
+	LBIND_END_DEFINE_FUNC
+}
+
+LBIND_BEGIN_DEFINE_LIB(CCheckBoxUI)
+{
+	"isCheck", lbind::GetCheck
+},
+	{ "setCheck",lbind::SetCheck },
+
+LBIND_END_DEFINE_LIB

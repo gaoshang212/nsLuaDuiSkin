@@ -42,23 +42,29 @@ public:
 
 	void Run(LuaState* L) override
 	{
-		LuaObject func = L->getGlobal("onProgress");
-		if (func.isFunction())
-		{
-			LuaFunction fun = func;
-			fun(m_value);
-		}
-
-		LuaTable nsis = L->getGlobal("nsis");
-
-		if (nsis.isTable())
-		{
-			LuaFunction onProgress = nsis["onProgress"];
-
-			if (onProgress.isValid())
+		try {
+			LuaObject func = L->getGlobal("onProgress");
+			if (func.isFunction())
 			{
-				onProgress(m_value);
+				LuaFunction fun = func;
+				fun(m_value);
 			}
+
+			LuaTable nsis = L->getGlobal("nsis");
+
+			if (nsis.isTable())
+			{
+				LuaFunction onProgress = nsis["onProgress"];
+
+				if (onProgress.isValid())
+				{
+					onProgress(m_value);
+				}
+			}
+		}
+		catch (LuaException err)
+		{
+			LOGE("doString error:" << err.what());
 		}
 	}
 
@@ -99,7 +105,7 @@ extern  extra_parameters* g_pluginParms;
 class Nsis
 {
 public:
-	LBIND_BASE_CLASS_DEFINE(Nsis,"NSIS");
+	LBIND_BASE_CLASS_DEFINE(Nsis);
 
 	static void Install()
 	{

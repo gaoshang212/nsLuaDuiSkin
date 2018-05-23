@@ -202,8 +202,13 @@ int LuaState::setPath(const char* path)
 		auto cpath = package.getTable("path").toString();
 
 		auto spath = std::string(path);
-		if(spath.compare(spath.size() - 4, 4, "?.lua") != 0)
+		if (spath.compare(spath.size() - 4, 4, "?.lua") != 0)
 		{
+			if (spath.compare(spath.size() - 1, 1, "\\") != 0)
+			{
+				spath += "\\";
+			}
+
 			spath += "?.lua";
 		}
 

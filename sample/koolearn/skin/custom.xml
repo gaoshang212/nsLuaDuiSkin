@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+    <VerticalLayout padding="0,30,0,0">
+        <!-- <HorizontalLayout bkimage="file='images/welcom_text.png'" height="26" width="329" align="center" /><Button name="btnInstall" normalimage="file='images/install.png' source='0,0,220,50'" hotimage="file='images/install.png' source='0,50,220,100'" pushedimage="file='images/install.png' source='0,100,220,150'" disabledimage="file='images/install.png' source='0,150,220,200'" padding="290,30,0,0" width="220" height="50"></Button> -->
+        <HorizontalLayout padding="207,0,0,0" width="402" height="36">
+            <RichEdit font="5" name="installDir" readonly="true" text="" textcolor="0xFFA3A3A3" bkcolor="#FFFFFFFF" inset="5,8,2,2" autohscroll="true" bordervisible="true" leftbordersize="1" topbordersize="1" bottombordersize="1" bordercolor="0xFFD1D1D1" focusbordercolor="0xFFD1D1D1" wantreturn="false" wantctrlreturn="false" multiline="false" />
+            <Button font="5" text="更改" bkcolor="#FFECECEC" textcolor="#FF828282" width="76">
+                <Event>
+                    <click>
+                        <![CDATA[										
+							local dir = UI.Nsis.showFolderDialog()
+							if(dir ~= nil and dir ~= "")
+							then
+								this:window():findControl("installDir"):setText(dir)	
+							end
+						]]>
+                    </click>
+                </Event>
+            </Button>
+        </HorizontalLayout>
+        <HorizontalLayout padding="207,30,0,0" height="50">
+            <Button name="btnInstall" normalimage="file='images/install.png' source='0,0,220,50'" hotimage="file='images/install.png' source='0,50,220,100'" pushedimage="file='images/install.png' source='0,100,220,150'" disabledimage="file='images/install.png' source='0,150,220,200'" width="220" height="50">
+                <Event>
+                    <click>
+                        <![CDATA[				
+                            local window = this:window()						
+							local dir = window:findControl("installDir"):text()	
+							UI.Nsis.setInstallDir(dir)
+                            UI.Nsis.install()
+
+                            window:findControl("tab"):selectItem(2)
+						]]>
+                    </click>
+                </Event>
+            </Button>
+            <Button normalimage="file='images/custom_return.png'" padding="14,0,0,0" width="167" height="50">
+                <Event>
+                    <click>
+                        <![CDATA[										
+							local window = this:window()
+
+							local tab = window:findControl("tab")
+							tab:selectItem(0)
+						]]>
+                    </click>
+                </Event>
+            </Button>
+        </HorizontalLayout>
+    </VerticalLayout>
+</Window>

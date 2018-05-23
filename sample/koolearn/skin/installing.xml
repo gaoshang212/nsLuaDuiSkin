@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+    <VerticalLayout >
+        <VerticalLayout height="349" padding="0,-30,0,0" >
+            <VerticalLayout bkimage="images/logo.png" width="800" height="349" />
+        </VerticalLayout>
+        <VerticalLayout padding="0,30,0,0">
+            <Label padding="170,0,0,0" text="正在安装" textcolor="#FFFFFFFF" />
+            <Slider name="nsisProgress" padding="170,11,0,5" height="12" width="466" mouse="false" foreimage="images/progress/fore.png" thumbsize="0,0" bkcolor="#FF007077" borderround="5,5" />
+            <VerticalLayout name="progress_cursor" padding="167,0,0,0">
+                <Control bkimage="images/progress_cursor.png" width="10" height="13" />
+                <Label name="progress_value" text="0%" textcolor="#ffffba78" />
+            </VerticalLayout>
+        </VerticalLayout>
+    </VerticalLayout>
+</Window>

@@ -12,6 +12,8 @@ namespace DuiLib
 	class DUILIB_API CCheckBoxUI : public COptionUI
 	{
 	public:
+		LBIND_CLASS_DEFINE(CCheckBoxUI, COptionUI);
+
 		LPCTSTR GetClass() const;
 		LPVOID GetInterface(LPCTSTR pstrName);
 

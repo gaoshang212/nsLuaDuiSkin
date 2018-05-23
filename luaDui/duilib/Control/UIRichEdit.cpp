@@ -2028,11 +2028,17 @@ void CRichEditUI::SetPos(RECT rc, bool bNeedInvalidate)
 		rcScrollTextView.right -= m_rcTextPadding.right;
 		rcScrollTextView.top += m_rcTextPadding.top;
 		rcScrollTextView.bottom -= m_rcTextPadding.bottom;
+		if (m_pVerticalScrollBar && m_pVerticalScrollBar->IsVisible())
+		{
+			rcScrollTextView.right -= m_pVerticalScrollBar->GetPadding().left;
+		}
+		
 		RECT rcText = rc;
 		rcText.left += m_rcTextPadding.left;
 		rcText.right -= m_rcTextPadding.right;
 		rcText.top += m_rcTextPadding.top;
 		rcText.bottom -= m_rcTextPadding.bottom;
+		
         m_pTwh->SetClientRect(&rcScrollTextView);
         if( bVScrollBarVisiable && (!m_pVerticalScrollBar->IsVisible() || m_bVScrollBarFixing) ) {
             LONG lWidth = rcText.right - rcText.left + m_pVerticalScrollBar->GetFixedWidth();
