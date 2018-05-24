@@ -137,6 +137,13 @@ public:
 
 	static void NotifyProgress(float progress)
 	{
+		if (progress - m_progress < 0.01)
+		{
+			return;
+		}
+
+		m_progress = progress;
+
 		Dispatcher* d = new Dispatcher(m_progressfunction, progress);
 
 		DuiLib::CApplicationUI::SharedInstance()->PostRunable(d);
@@ -248,8 +255,10 @@ private:
 	static extra_parameters* m_extra;
 	static INT_PTR m_installfucntion;
 	static int m_progressfunction;
+	static float m_progress;
 
 	static std::map<std::string, int> m_functions;
+
 };
 
 

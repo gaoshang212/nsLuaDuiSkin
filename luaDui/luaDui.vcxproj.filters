@@ -159,6 +159,9 @@
     <ClInclude Include="bind\lutil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="duilib\Control\UIImageAnim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -312,6 +315,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="bind\lwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="duilib\Control\UIImageAnim.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

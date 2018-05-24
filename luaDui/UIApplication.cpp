@@ -41,6 +41,7 @@ namespace DuiLib
 		LBIND_REGISTER_CLASS(CEditUI,&m_lua);
 		LBIND_REGISTER_CLASS(CScrollBarUI,&m_lua);
 		LBIND_REGISTER_CLASS(CCheckBoxUI, &m_lua);
+		LBIND_REGISTER_CLASS(CImageAnimUI, &m_lua);
 
 		LBIND_REGISTER_CLASS(CContainerUI,&m_lua);
 		LBIND_REGISTER_CLASS(CVerticalLayoutUI,&m_lua);
@@ -50,6 +51,7 @@ namespace DuiLib
 		LBIND_REGISTER_CLASS(CComboUI,&m_lua);
 		LBIND_REGISTER_CLASS(CRichEditUI,&m_lua);
 		LBIND_REGISTER_CLASS(CDialogBuilder,&m_lua);
+
 	}
 
 	CApplicationUI::~CApplicationUI()

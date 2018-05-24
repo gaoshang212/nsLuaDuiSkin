@@ -116,6 +116,7 @@
 #include "Control/UIWebBrowser.h"
 #include "Control/UIGifAnim.h"
 //#include "Control/UIFlash.h"
+#include "Control/UIImageAnim.h"
 
 #include "UIWindow.h"
 #include "UIApplication.h"

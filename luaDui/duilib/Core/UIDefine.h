@@ -279,6 +279,8 @@ protected:                                                                \
 #define  DUI_CTR_LISTCONTAINERELEMENT            (_T("ListContainerElement"))
 
 
+#define	 DUI_CTR_IMAGEANIM						 (_T("ImageAnim"))
+
 ///
 //////////////END控件名称宏定义//////////////////////////////////////////////////
 

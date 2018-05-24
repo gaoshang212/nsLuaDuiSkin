@@ -150,6 +150,7 @@
     <ClInclude Include="base\Criticalsection.h" />
     <ClInclude Include="base\RefBase.h" />
     <ClInclude Include="bind\lutil.h" />
+    <ClInclude Include="duilib\Control\UIImageAnim.h" />
     <ClInclude Include="duilib\Control\UIActiveX.h" />
     <ClInclude Include="duilib\Control\UIButton.h" />
     <ClInclude Include="duilib\Control\UICheckBox.h" />
@@ -207,6 +208,7 @@
     <ClCompile Include="bind\lrichedit.cpp" />
     <ClCompile Include="bind\lutil.cpp" />
     <ClCompile Include="bind\lwindow.cpp" />
+    <ClCompile Include="duilib\Control\UIImageAnim.cpp" />
     <ClCompile Include="duilib\Control\UIActiveX.cpp" />
     <ClCompile Include="duilib\Control\UIButton.cpp" />
     <ClCompile Include="duilib\Control\UICheckBox.cpp" />

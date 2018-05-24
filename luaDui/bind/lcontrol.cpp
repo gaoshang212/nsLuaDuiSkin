@@ -445,20 +445,3 @@ LBIND_BEGIN_DEFINE_LIB(CControlUI)
 	{ "borderRound",lbind::GetBorderRound },
 	{ "setBorderRound",lbind::SetBorderRound },
 		LBIND_END_DEFINE_LIB
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

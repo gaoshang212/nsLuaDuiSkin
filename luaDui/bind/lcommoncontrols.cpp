@@ -530,3 +530,24 @@ LBIND_BEGIN_DEFINE_LIB(CCheckBoxUI)
 	{ "setCheck",lbind::SetCheck },
 
 LBIND_END_DEFINE_LIB
+
+namespace lbind
+{
+	LBIND_DEFINE_FUNC(CImageAnimUI, Play)
+			pThis->Play();
+	LBIND_END_DEFINE_FUNC
+
+	LBIND_DEFINE_FUNC(CImageAnimUI, Pause)
+		pThis->Pause();
+	LBIND_END_DEFINE_FUNC
+
+	LBIND_DEFINE_FUNC(CImageAnimUI, Stop)
+		pThis->Stop();
+	LBIND_END_DEFINE_FUNC
+}
+
+LBIND_BEGIN_DEFINE_LIB(CImageAnimUI)
+{ "play", lbind::Play},
+{ "pause",lbind::Pause },
+{ "stop",lbind::Stop },
+LBIND_END_DEFINE_LIB

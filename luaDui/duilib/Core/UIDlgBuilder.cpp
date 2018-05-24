@@ -326,6 +326,7 @@ namespace DuiLib {
 					if (_tcsicmp(pstrClass, DUI_CTR_CONTAINER) == 0)             pControl = new CContainerUI;
 					else if (_tcsicmp(pstrClass, DUI_CTR_TABLAYOUT) == 0)        pControl = new CTabLayoutUI;
 					else if (_tcsicmp(pstrClass, DUI_CTR_SCROLLBAR) == 0)        pControl = new CScrollBarUI;
+					else if (_tcsicmp(pstrClass, DUI_CTR_IMAGEANIM) == 0)        pControl = new CImageAnimUI;
 					break;
 				case 10:
 					if (_tcsicmp(pstrClass, DUI_CTR_LISTHEADER) == 0)            pControl = new CListHeaderUI;
