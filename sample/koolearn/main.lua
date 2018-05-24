@@ -4,9 +4,11 @@ local app=UI.CApplicationUI.sharedInstance()
 --app:setResourcePath(app:instancePath().."skin")
 
 --debug.showDebugUI()
+app:setResourceZip("skin.zip")
+
 local Window=UI.CWindowUI
 
---app:setResourceZip("360Demo.zip")
+
 local wnd=Window.create({res="skin.xml",name="新东方在线",x=0,y=0,w=800,h=650,type="popup"})
 wnd:centerWindow()
 
@@ -17,6 +19,7 @@ wnd:centerWindow()
 nsis = {
     onProgress = function(progress)
         print("1111111111111111111111111")
+        
         local control = wnd:findControl("nsisProgress")
         control:setValue(progress)
        

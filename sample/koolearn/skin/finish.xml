@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Window>
     <VerticalLayout>
-        <VerticalLayout height="349" padding="0,-30,0,0">
-            <VerticalLayout bkimage="images/logo.png" width="800" height="349" /></VerticalLayout>
-        <VerticalLayout padding="0,15,0,0">
-            <HorizontalLayout bkimage="file='images/setup_finished_text.png'" height="15" width="57" align="center" padding="372,0,0,0" />
-            <HorizontalLayout bkimage="file='images/setup_finished_01.png'" height="10" width="17" align="center" padding="391,13,0,0" />
-            <Button name="btnInstall" normalimage="file='images/enter.png' source='0,0,220,50'" hotimage="file='images/enter.png' source='0,50,220,100'" pushedimage="file='images/enter.png' source='0,100,220,150'" disabledimage="file='images/enter.png' source='0,150,220,200'" padding="290,25,0,0" width="220" height="50">
-                <Event>
-                    <click>
-                        <![CDATA[
-                            UI.Nsis.call("OnFinished")
-                        ]]>
-                    </click>
-                </Event>
-            </Button>
+        <ImageAnim bkimage="images/animation/guang.xml" float="true" pos="0,0,0,0" width="800" height="650" autoplay="true" />
+        <VerticalLayout padding="0,-30,0,0">
+            <VerticalLayout bkimage="images/logo.png" width="800" height="349" />
+            <VerticalLayout padding="0,15,0,0" >
+                <HorizontalLayout bkimage="file='images/setup_finished_text.png'" height="15" width="57" align="center" padding="372,0,0,0" />
+                <HorizontalLayout bkimage="file='images/setup_finished_01.png'" height="10" width="17" align="center" padding="391,13,0,0" />
+                <Button name="btnInstall" normalimage="file='images/enter.png' source='0,0,220,50'" hotimage="file='images/enter.png' source='0,50,220,100'" pushedimage="file='images/enter.png' source='0,100,220,150'" disabledimage="file='images/enter.png' source='0,150,220,200'" padding="290,25,0,0" width="220" height="50">
+                    <Event>
+                        <click>
+                            <![CDATA[
+                                UI.Nsis.call("OnFinished")
+                            ]]>
+                        </click>
+                    </Event>
+                </Button>
+            </VerticalLayout>
         </VerticalLayout>
     </VerticalLayout>
 </Window>

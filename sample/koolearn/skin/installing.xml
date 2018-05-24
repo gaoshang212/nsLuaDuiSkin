@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Window>
     <VerticalLayout >
+        <ImageAnim bkimage="images/animation/guang.xml" float="true" pos="0,0,0,0" width="800" height="650" autoplay="true" />
         <VerticalLayout height="349" padding="0,-30,0,0" >
             <VerticalLayout bkimage="images/logo.png" width="800" height="349" />
         </VerticalLayout>

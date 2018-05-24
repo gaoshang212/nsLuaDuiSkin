@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ascii" standalone="yes" ?>
+<Animation name="bkani" >
+    <frame image="images/Animation/start/start_01.png" time="100"/>
+    <frame image="images/Animation/start/start_02.png" time="100"/>
+    <frame image="images/Animation/start/start_03.png" time="100"/>
+    <frame image="images/Animation/start/start_04.png" time="100"/>
+    <frame image="images/Animation/start/start_05.png" time="100"/>
+    <frame image="images/Animation/start/start_06.png" time="100"/>
+    <frame image="images/Animation/start/start_07.png" time="100"/>
+    <frame image="images/Animation/start/start_08.png" time="100"/>
+    <frame image="images/Animation/start/start_09.png" time="100"/>
+</Animation>
